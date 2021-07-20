@@ -2,37 +2,241 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 49px;
+  margin-right: 49px;
+  padding: 20px 32px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#signup-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color:#1cc29f;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px #999;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#signup-btn:hover {
+  background-color: #1cc29f;
+  transform: translateY(3px);
+  box-shadow:none;
+
+}
+
+
+#login-btn{
+  text-decoration: none;
+  color: #1cc29f;
+  padding: 0px 12px;
+}
+
+#login-btn-container{
+  vertical-align: middle;
+}
+#log-sign-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#login-body{
+  background-color: rgba(47, 128, 0, 0.397);
+  background-image: url("https://assets.splitwise.com/assets/core/facets.png");
+}
+
+#login-container{
+  margin:0px 49px;
+  padding:32px 16px;
+  /* background-color: orange; */
+}
+
+#login-content{
+  margin-bottom: 32px;
+  padding: 32px 16px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0px 4px 8px rgb(0 0 0 / 12%);
+  
+  /* display: flex;
+  flex-direction: column; */
+  /* text-align: left; */
+}
+
+#login-submit-btn{
+
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color:#18a582;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px #999;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+#login-submit-btn:hover {
+  background-color: #1cc29f;
+  transform: translateY(3px);
+  box-shadow:none;
+}
+#login-label{
+  font-size: 28px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+#email-lbl,#password-lbl{
+margin-bottom: 0px;
+text-align: left;
+}
+#email-inpt,#pswd-inpt{
+font-size: 16px;
+}
+#frgt-passwd{
+  padding:8px 0px 8px 0px;
+  text-decoration: none;
+  color: #18a582;
+  font-weight: 600;
+}
+#or{
+  display:flex;
+  flex-direction: row; 
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
+
+#hr1,#hrt2{
+  width:40px;
+}  
+
+#sign-in-with-google-container{
+  padding-top:16px;
+  padding-bottom:24px;
+  font-size: 16px;
+}
+
+#sign-in-with-google-btn{
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  border: 1px;
+  border-radius: 5px;
+  box-shadow: 0 2px rgb(55 59 63 / 50%);
+  width: 100%;
+  font-weight: 600;
+}
+
+#sign-in-with-google-btn:hover {
+  transform: translateY(3px);
+  box-shadow:none;
+}
+
+#login-form-wrap{
+  text-align: left;
+}
+
+#signup-wrapper{
+  transform: translate(30%,50%); 
+  display: flex;
+  flex-direction: row;
+
+}
+#sigup-content{
   display: flex;
   flex-direction: column;
+  text-align: left;
+}
+
+#intro-label{
+  font-size: 16px;
+  text-align: left;
+  color: #999;
+  font-weight: bold;
+  line-height: 20px;
+}
+#signup-name-lbl{
+  margin-top:16px;
+  margin-bottom: 5px;
+  font-size: 24px;
+}
+
+#signup-email-lbl,#signup-pswd-lbl{
+font-size: 18px;
+}
+
+#name-signup-inpt{
+  height: 42px;
+  font-size: 32px;
+  border:1px solid #cccccc;
+  padding:4px;
+  margin-bottom: 17px ;
+}
+#email-signup-inpt,#password-signup-inpt{
+  width:96%;
+  height:28px;
+  margin-bottom:17px;
+  font-size:20px;
+}
+
+#sign-up-with-google-btn{
+  display: inline-block;
+  padding: 4px 6px;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #777;
+  border: 1px;
+  border-radius: 5px;
+  box-shadow: 0 2px rgb(55 59 63 / 50%);
+  font-weight:400;
+}
+
+#sign-up-with-google-btn:hover {
+  transform: translateY(3px);
+  box-shadow:none;
+}
+
+#signup-google-btn-container{
+display: flex;
+flex-direction: row;
+align-content: center;
+justify-content: space-between;
+}
+
+#or-signup{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#or-signup p{
+  margin-right: 20px;
+  align-self: center;
 }
