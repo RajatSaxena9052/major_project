@@ -4,10 +4,10 @@ import Footer from "./footer";
 export default class Login extends React.Component {
     render() {
         return (
-            <div>
+            <div >
                 <div id="login-body">
                     <div id="login-container">
-                        <div>
+                        <div id="kam-size">
                             <div id="login-content">
 
 

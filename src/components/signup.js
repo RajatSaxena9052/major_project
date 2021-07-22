@@ -7,7 +7,7 @@ export default class Signup extends React.Component {
             <div id="signup-main" class="container d-flex justify-content-center align-items-center">
 
                 <div id="signup-wrapper">
-                    <div>
+                    <div id="hide-karo-on-phone">
                         <Link to="/"><img id="split-wise-logo-signup" src="https://assets.splitwise.com/assets/core/logo-square-65a6124237868b1d2ce2f5db2ab0b7c777e2348b797626816400534116ae22d7.svg" alt="splitwiseLogo" /></Link>
                     </div>
 
