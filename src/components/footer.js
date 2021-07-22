@@ -4,7 +4,7 @@ import { GrFacebook, GrTwitter, GrInstagram } from "react-icons/gr";
 export default class Footer extends React.Component {
     render() {
         return (
-            <div class="container">
+            <div class="container mt-5">
                 <div class="d-flex flex-row flex-wrap justify-content-between col-lg">
                     <div class="row d-flex flex-row flex-nowrap justify-content-between col-lg-7 ">
 
@@ -63,9 +63,6 @@ export default class Footer extends React.Component {
                         <p>Made with :) in Providence, RI, USA</p>
                     </div>
                 </div>
-
-
-
 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 91" class="w-full s">
                     <path fill="#ACE4D6" d="M349 76.499L286 113V40z"></path>
