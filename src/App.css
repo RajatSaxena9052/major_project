@@ -7,8 +7,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-left: 49px;
-  margin-right: 49px;
   padding: 20px 32px;
 }
 
@@ -52,13 +50,15 @@
 }
 
 #login-body{
-  background-color: rgba(47, 128, 0, 0.397);
+  background-color: rgba(0, 128, 58, 0.329);
   background-image: url("https://assets.splitwise.com/assets/core/facets.png");
+
 }
 
 #login-container{
   margin:0px 49px;
   padding:32px 16px;
+  left:50%;
   /* background-color: orange; */
 }
 
@@ -159,11 +159,29 @@ font-size: 16px;
   text-align: left;
 }
 
+#split-wise-logo-signup{
+  width:200px;
+  height: 200px;
+  margin-right: 5px;
+}
+ #signup-main{
+  /* position: absolute; */
+  margin-top: 10%;
+  margin-left:10%;
+}
+@media only screen and (max-width:500px){
+  #split-wise-logo-signup{
+    width:100px;
+    height:100px;
+  }
+}
+
 #signup-wrapper{
-  transform: translate(30%,50%); 
+  /* transform: translate(50%,50%);  */
+  height:100%;
   display: flex;
   flex-direction: row;
-
+  /* padding: relative; */
 }
 #sigup-content{
   display: flex;
@@ -196,7 +214,7 @@ font-size: 18px;
   margin-bottom: 17px ;
 }
 #email-signup-inpt,#password-signup-inpt{
-  width:96%;
+  /* width:96%; */
   height:28px;
   margin-bottom:17px;
   font-size:20px;
@@ -239,4 +257,66 @@ justify-content: space-between;
 #or-signup p{
   margin-right: 20px;
   align-self: center;
+}
+
+#signupform-btn{
+background-color: #ff652f;
+text-shadow:0 -1px 0 #c83400;
+}
+
+.signupform-btn:link { text-decoration: none; }
+.signupform-btn:visited { text-decoration: none; }
+.signupform-btn:hover { text-decoration: none; }
+.signupform-btn:active { text-decoration: none; }
+
+#signupform-btn:hover{
+  background-color: #c43400;
+}
+
+.core-icon {
+  background-image: url("https://assets.splitwise.com/assets/core/core-feature.svg");
+  width: 21px;
+  height: 21px;
+  min-width: 21px;
+  min-height: 21px;
+}
+.signup-home{
+  box-shadow: 0 2px white;
+  color:white;
+}
+
+.signup-home:hover{
+  transform: translateY(3px);
+  box-shadow:none;
+}
+#bgi{
+  background-image :url('https://assets.splitwise.com/assets/core/facets.png');
+}
+
+#icon-img-home{
+  background-image: url("https://assets.splitwise.com/assets/core/core-feature.svg");
+}
+
+.home-card{
+  box-shadow: 0 2px rgb(55 59 63 / 50%);
+}
+.home-card:hover{
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+.home-card-icon{
+    height: 50px;
+    width: 50px;
+    object-fit: contain; 
+}
+
+.remove-link-decoration:link { text-decoration: none; }
+.remove-link-decoration:visited { text-decoration: none; }
+.remove-link-decoration:hover { text-decoration: none; }
+.remove-link-decoration:active { text-decoration: none; }
+
+.download-app{
+  height: 50px;
+  width: 141px;
 }

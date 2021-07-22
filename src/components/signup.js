@@ -3,13 +3,13 @@ import React from "react"
 export default class Signup extends React.Component {
     render() {
         return (
-            <div id="signup-main">
-
+            <div id="signup-main" class="container d-flex justify-content-center align-items-center">
+                
                 <div id="signup-wrapper">
                     <div>
-                        <img src="https://assets.splitwise.com/assets/core/logo-square-65a6124237868b1d2ce2f5db2ab0b7c777e2348b797626816400534116ae22d7.svg" alt="splitwiseLogo" />
+                        <img id="split-wise-logo-signup"src="https://assets.splitwise.com/assets/core/logo-square-65a6124237868b1d2ce2f5db2ab0b7c777e2348b797626816400534116ae22d7.svg" alt="splitwiseLogo" /* style={{height:200px,width:200px}} */ />
                     </div>
-                    
+
                     <div id="sigup-content">
                         <h2 id="intro-label">INTRODUCE YOURSELF</h2>
 
@@ -32,7 +32,7 @@ export default class Signup extends React.Component {
                             </div>
 
                             <div id="signup-google-btn-container">
-                                <button type="button" class="btn btn-primary btn-lg">Large button</button>
+                                <button id="signupform-btn" type="button" class="btn btn-primary btn-lg">Sign me up!</button>
 
                                 <div id="or-signup" >
                                     <p>or</p>

@@ -1,7 +1,9 @@
 import './App.css';
-import Bar from './components/bar';
-import Login from "./components/loginBody";
+import Bar from './components/navbar';
+import Login from "./components/login";
 import Signup from "./components/signup";
+import Home from "./components/homepage";
+import Footer from "./components/footer";
 
 import {
   BrowserRouter as Router,
@@ -14,13 +16,31 @@ function App() {
     <div className="App">
 
       <Router>
-        <Route path="/" component={Bar} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
+        <Route path="/" exact render={(props) => {
+          return (
+            <>
+              <Bar />
+              <Home />
+            </>
+          )
+        }} />
+
+        <Route path="/login" render={(props) => {
+          return (
+            <div>
+              <Bar />
+              <Login />
+            </div>
+          )
+        }} />
+
+        <Route path="/signup" render={(props) => {
+          return (
+            <Signup />
+          )
+        }} />
       </Router>
-      {/* <Bar /> */}
-      {/* <LoginBody />
-      <Signup /> */}
+
     </div>
   );
 }

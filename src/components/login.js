@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class LoginBody extends React.Component {
+export default class Login extends React.Component {
     render() {
         return (
             <div id="login-body">
@@ -24,6 +24,7 @@ export default class LoginBody extends React.Component {
                                 </div>
                                 <button id="login-submit-btn">Log in</button>
                             </form>
+
                             <a id="frgt-passwd" href="#passwordreset">Forgot your password?</a>
 
                             <div id="or">
@@ -33,6 +34,7 @@ export default class LoginBody extends React.Component {
                                 <hr id="hr1" class="inline-block" />
 
                             </div>
+                            
                             <div id="sign-in-with-google-container">
                                 <button id="sign-in-with-google-btn"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google logo" style={{marginRight:'10px'}}></img>Sign in with Google</button>
                             </div>
