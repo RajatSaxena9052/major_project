@@ -185,7 +185,6 @@ font-size: 16px;
 }
 
  #signup-main{
-  /* position: absolute; */
   margin-top: 10%;
   margin-left:10%;
 }
@@ -193,6 +192,11 @@ font-size: 16px;
   #split-wise-logo-signup{
     width:100px;
     height:100px;
+  }
+  #signup-main{
+  
+    margin-top: 10%;
+    margin-left:0;
   }
 }
 

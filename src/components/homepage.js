@@ -156,7 +156,7 @@ export default class Home extends React.Component {
                                     <p class="text-start">“Fundamental” for tracking finances. As good as WhatsApp for containing awkwardness.</p>
                                     <div class="d-flex flex-start h-12 align-items-center">
                                         <img class="mr-3  rounded img-fluid home-card-icon" src="https://secure.splitwise.com/assets/home_page/logos/ft.png" alt="Financial times logo" />
-                                        <span class="font-italic">Financial Times</span>
+                                        <span class="font-italic p-2">Financial Times</span>
                                     </div>
                                 </div>
                             </a>
@@ -179,7 +179,7 @@ export default class Home extends React.Component {
                                     <p>Makes it easy to split everything from your dinner bill to rent.</p>
                                     <div class="d-flex flex-start h-12 align-items-center">
                                         <img class="mr-3  rounded img-fluid home-card-icon" src="https://secure.splitwise.com/assets/home_page/logos/nyt.png" alt="Financial times logo" />
-                                        <span class="font-italic">NY Times</span>
+                                        <span class="font-italic p-2">NY Times</span>
                                     </div>
                                 </div>
                             </a>
@@ -204,7 +204,7 @@ export default class Home extends React.Component {
                                     <p>I never fight with roommates over bills because of this genius expense-splitting app</p>
                                     <div class="d-flex flex-start h-12 align-items-center">
                                         <img class="mr-3  rounded img-fluid home-card-icon" src="https://secure.splitwise.com/assets/home_page/logos/bi.png" alt="Financial times logo" />
-                                        <span class="font-italic">business Insider</span>
+                                        <span class="font-italic p-2">business Insider</span>
                                     </div>
                                 </div>
                             </a>
