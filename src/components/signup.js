@@ -1,13 +1,14 @@
-import React from "react"
+import React from "react";
+import {Link} from "react-router-dom"; 
 
 export default class Signup extends React.Component {
     render() {
         return (
             <div id="signup-main" class="container d-flex justify-content-center align-items-center">
-                
+
                 <div id="signup-wrapper">
                     <div>
-                        <img id="split-wise-logo-signup"src="https://assets.splitwise.com/assets/core/logo-square-65a6124237868b1d2ce2f5db2ab0b7c777e2348b797626816400534116ae22d7.svg" alt="splitwiseLogo" /* style={{height:200px,width:200px}} */ />
+                        <Link to="/"><img id="split-wise-logo-signup" src="https://assets.splitwise.com/assets/core/logo-square-65a6124237868b1d2ce2f5db2ab0b7c777e2348b797626816400534116ae22d7.svg" alt="splitwiseLogo" /></Link>
                     </div>
 
                     <div id="sigup-content">

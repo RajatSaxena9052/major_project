@@ -3,7 +3,7 @@ import Bar from './components/navbar';
 import Login from "./components/login";
 import Signup from "./components/signup";
 import Home from "./components/homepage";
-import Footer from "./components/footer";
+
 
 import {
   BrowserRouter as Router,
