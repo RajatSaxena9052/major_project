@@ -8,7 +8,7 @@ export default class Footer extends React.Component {
                 <div class="d-flex flex-row flex-wrap justify-content-between col-lg">
                     <div class="row d-flex flex-row flex-nowrap justify-content-between col-lg-7 ">
 
-                        <div class="col fs-5 text-start">
+                        <div class="col fs-6 text-start">
                             <p class="text-success font-weight-bold ">splitwise</p>
                             <ul class="text-secondary list-unstyled">
                                 <li><a href="#nolink" class="remove-link-decoration text-secondary">About</a></li>
@@ -20,7 +20,7 @@ export default class Footer extends React.Component {
                             </ul>
                         </div>
 
-                        <div class="col fs-5 text-start" >
+                        <div class="col fs-6 text-start" >
                             <p class="text-danger font-weight-bold">Account</p>
                             <ul class="list-unstyled">
                                 <li><a href="#nolink" class="remove-link-decoration text-secondary">Log in</a></li>
@@ -31,18 +31,18 @@ export default class Footer extends React.Component {
                             </ul>
                         </div>
 
-                        <div class="col fs-5 text-start">
-                            <p class="text-dark font-weight-bold text-left">More</p >
+                        <div class="col fs-6 text-start">
+                            <p class="text-dark font-weight-bold text-start">More</p >
                             <ul class="list-unstyled">
                                 <li><a href="#nolink" class="remove-link-decoration text-secondary">Contact us</a></li>
                                 <li><a href="#nolink" class="remove-link-decoration text-secondary">FAQ</a></li>
                                 <li><a href="#nolink" class="remove-link-decoration text-secondary">Terms of Services</a></li>
                                 <li><a href="#nolink" class="remove-link-decoration text-secondary">Privacy Policy</a></li>
                             </ul>
-                            <div class="d-flex justify-content-space  text-secondary">
-                                <a class="pr-3 remove-link-decoration" href="https://twitter.com/splitwise"><GrTwitter /></a>
-                                <a class="pr-3 remove-link-decoration" href="https://facebook.com/splitwise"><GrFacebook /></a>
-                                <a class="pr-3 remove-link-decoration" href="https://www.instagram.com/splitwise/"><GrInstagram /></a>
+                            <div class="d-flex text-secondary">
+                                <a class="m-1 remove-link-decoration" href="https://twitter.com/splitwise"><GrTwitter /></a>
+                                <a class="m-1 remove-link-decoration" href="https://facebook.com/splitwise"><GrFacebook /></a>
+                                <a class="m-1 remove-link-decoration" href="https://www.instagram.com/splitwise/"><GrInstagram /></a>
                             </div>
 
                         </div>

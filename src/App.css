@@ -138,15 +138,10 @@ font-size: 16px;
   margin-top: 24px;
 }
 
-#hr1,#hrt2{
+#hrt2{
   width:40px;
 }  
 
-#sign-in-with-google-container{
-  padding-top:16px;
-  padding-bottom:24px;
-  font-size: 16px;
-}
 
 #sign-in-with-google-btn{
   display: inline-block;
@@ -181,18 +176,17 @@ font-size: 16px;
 #split-wise-logo-signup{
   width:200px;
   height: 200px;
-  margin-right: 5px;
 }
+
 @media only screen and (max-width:600px){
   #hide-karo-on-phone{
     display: none;
   }
-
 }
 
  #signup-main{
   margin-top: 10%;
-  margin-left:10%;
+  margin-left:6%;
 }
 @media only screen and (max-width:500px){
   #split-wise-logo-signup{
@@ -236,20 +230,20 @@ font-size: 16px;
 font-size: 18px;
 }
 
-#name-signup-inpt{
+/* #name-signup-inpt{
   height: 42px;
-  font-size: 32px;
+  font-size: 30px;
   border:1px solid #cccccc;
   padding:4px;
   margin-bottom: 17px ;
-}
-#email-signup-inpt,#password-signup-inpt{
-  /* width:96%; */
+} */
+/* #email-signup-inpt,#password-signup-inpt{
+  width:96%;
   height:28px;
   margin-bottom:17px;
   font-size:20px;
-}
-
+} */
+/* 
 #sign-up-with-google-btn{
   display: inline-block;
   padding: 4px 6px;
@@ -268,7 +262,7 @@ font-size: 18px;
 #sign-up-with-google-btn:hover {
   transform: translateY(3px);
   box-shadow:none;
-}
+} */
 
 #signup-google-btn-container{
 display: flex;
@@ -349,4 +343,21 @@ text-shadow:0 -1px 0 #c83400;
 .download-app{
   height: 50px;
   width: 141px;
+}
+
+.active-side-link{
+    color:red;
+}
+.dash-back{
+background-color: #eee;
+}
+
+
+.side-hover{
+  text-decoration: none;
+}
+
+.side-hover:hover
+{
+  background-color: #eee;
 }

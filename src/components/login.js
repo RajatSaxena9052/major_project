@@ -1,11 +1,82 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Footer from "./footer";
+import Joi from "joi";
 
 export default class Login extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            email: "",
+            password: "",
+            isDisabled: false,
+            error: ""
+        }
+    }
+    eMail = (event) => {
+
+        this.setState({
+            email: event.target.value
+        })
+        console.log(event.target.value);
+
+    }
+
+    passWord = (event) => {
+
+        this.setState({
+            password: event.target.value
+        })
+        console.log(event.target.value);
+    }
+
+    login = (event) => {
+
+        const { email, password } = this.state;
+
+        const schema = Joi.object({
+            email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } }),
+            password: Joi.string().pattern(/^[a-zA-Z0-9]{3,30}$/)
+        })
+
+        const result = schema.validate({ email, password });
+
+        if (result.error) {
+            event.preventDefault();
+
+            const errorMessage = result.error.details[0].message.replaceAll('"', "");
+
+
+            if (result.error) {
+                if (result.error.details[0].context.key === "password") {
+                    this.setState({
+                        error: "The password can contain lower case, upper case, special characters and should have a length between 3 to 30.",
+                    });
+                }
+
+                else {
+                    this.setState({
+                        error: errorMessage
+                    });
+                }
+            }
+            return
+        }
+    }
     render() {
         return (
             <div >
                 <div id="login-body">
+
+
+
+                    <div class="bg-danger d-flex justify-content-center align-items-center text-white pd-2">
+                        {this.state.error}
+                    </div>
+
+
+
+
                     <div id="login-container">
                         <div id="kam-size">
                             <div id="login-content">
@@ -17,29 +88,19 @@ export default class Login extends React.Component {
 
                                     <div class="mb-3">
                                         <label id="email-lbl" for="email" class="form-label">Email address </label>
-                                        <input type="text" name="email" class="form-control" id="email-inpt" />
+                                        <input type="text" name="email" class="form-control" id="email-inpt" onChange={this.eMail} placeholder="Please enter your Email Id here!" />
                                     </div>
                                     <div class="mb-3">
                                         <label id="password-lbl" for="Password" class="form-label">Password</label>
-                                        <input type="password" name="password" class="form-control" id="Pswd-inpt" />
+                                        <input type="password" name="password" class="form-control" id="Pswd-inpt" onChange={this.passWord} placeholder="Please enter your Password here!" />
 
                                     </div>
-                                    <button id="login-submit-btn">Log in</button>
+
+                                    <Link to="/loggedin"><button id="login-submit-btn" onClick={this.login}>Log in</button></Link>
+
                                 </form>
 
                                 <a id="frgt-passwd" href="#passwordreset">Forgot your password?</a>
-
-                                <div id="or">
-
-                                    <hr id="hr1" class="inline-block" />
-                                    <div class="inline-block">or</div>
-                                    <hr id="hr1" class="inline-block" />
-
-                                </div>
-
-                                <div id="sign-in-with-google-container">
-                                    <button id="sign-in-with-google-btn"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google logo" style={{ marginRight: '10px' }}></img>Sign in with Google</button>
-                                </div>
 
 
                             </div>

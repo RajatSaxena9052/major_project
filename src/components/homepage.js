@@ -1,7 +1,6 @@
 import React from "react";
 import Footer from "./footer";
-import Navbar from "./navbar";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export default class Home extends React.Component {
     render() {
@@ -98,42 +97,42 @@ export default class Home extends React.Component {
 
                         <div class="col">
                             <ul className="list-unstyled">
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Add groups and friends</li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Split expenses, record debts</li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Equal or unequal splits</li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Split by % or shares</li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Calculate total balances</li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Suggested repayments</li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Simplify debts</li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Recurring expenses</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon"></img>Add groups and friends</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon" ></img>Split expenses, record debts</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon" ></img>Equal or unequal splits</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon" ></img>Split by % or shares</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon" ></img>Calculate total balances</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon" ></img>Suggested repayments</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon" ></img>Simplify debts</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon" ></img>Recurring expenses</li>
                             </ul>
 
                         </div>
 
                         <div class="col">
                             <ul className="list-unstyled">
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img> Offline mode</li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Cloud sync</li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Spending totals</li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Categorize expenses</li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Easy CSV exports</li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>7+ languages</li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>100+ currencies</li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Payment integrations</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon" ></img> Offline mode</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon" ></img>Cloud sync</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon" ></img>Spending totals</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon" ></img>Categorize expenses</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon" ></img>Easy CSV exports</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon" ></img>7+ languages</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon" ></img>100+ currencies</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon" ></img>Payment integrations</li>
                             </ul>
 
                         </div>
 
                         <div class="col">
                             <ul className="list-unstyled">
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>A totally ad-free experience</li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Currency conversion</li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Receipt scanning</li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Itemization </li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Charts and graphs </li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Expense search</li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Save default splits </li>
-                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg"></img>Early access to new features</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon"  ></img>A totally ad-free experience</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon"  ></img>Currency conversion</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon"  ></img>Receipt scanning</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon"  ></img>Itemization </li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon"  ></img>Charts and graphs </li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon"  ></img>Expense search</li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon"  ></img>Save default splits </li>
+                                <li><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon"  ></img>Early access to new features</li>
                             </ul>
                         </div>
 
@@ -142,7 +141,7 @@ export default class Home extends React.Component {
                 </div>
 
                 <div class="row justify-content-center flex-row text-xs mt-7 mb-5">
-                    <span ><img src="https://assets.splitwise.com/assets/core/core-feature.svg" />Pro features <img src="https://assets.splitwise.com/assets/core/core-feature.svg" />Core features</span>
+                    <span ><img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon" />Pro features <img src="https://assets.splitwise.com/assets/core/core-feature.svg" alt="icon" />Core features</span>
                 </div>
 
 
