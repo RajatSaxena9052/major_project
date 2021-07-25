@@ -2,16 +2,24 @@ import React from "react";
 
 export default class Activities extends React.Component {
     render() {
-        console.log(this.props)
-        const {
-            description,
-            equalSplit,
-            selfPaid
-        } = this.props.data;
+        // const {
+        //     description,
+        //     equalSplit,
+        //     selfPaid
+        // } = this.props.data;
 
-        console.log(selfPaid);
-        return (
-            selfPaid ?
+        const { data = {} } = this.props;
+
+        return Object.values(data).map(d => {
+            const {
+                description,
+                equalSplit,
+                selfPaid
+            } = d;
+
+            console.log(d);
+
+            return selfPaid ?
                 <div class="container" >
                     <div class="notification-content text-start border-1">
                         <strong>You</strong> added <strong>{description}</strong>.<br /><font color="#5bc5a7">You get back {equalSplit}</font>
@@ -25,7 +33,7 @@ export default class Activities extends React.Component {
 
                     </div>
                 </div >
+        })
 
-        )
     }
 }

@@ -1,11 +1,12 @@
 import React from "react";
-import Activities from "./activities";
+import Activities from "./Activities";
 
 export default class Recentab extends React.Component {
-    render() {
-        console.log()
 
-        const data = JSON.parse(localStorage.getItem("data"));
+    render() {
+        const data = JSON.parse(localStorage.getItem("data")) || {};
+        // console.log(data)
+
         return (
             <div class="mx-auto" >
 

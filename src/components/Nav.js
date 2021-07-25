@@ -1,14 +1,15 @@
 import React from "react";
+import splitwiseLogo from "../logos/splitwise.png"
 import { Link } from "react-router-dom";
 
 export default class Navbar extends React.Component {
     render() {
         return (
 
-            <div class="container-fluid">
-                <nav class="navbar navbar-light bg-info">
+            <div class="jumbotron" >
+                <nav class="navbar navbar-light bg-info" style={{ padding: "0 24px" }}>
                     <a class="navbar-brand" href="/">
-                        <img src="splitwise.png" width="108" height="32" className="d-inline-block align-top" alt="splitwise" />
+                        <img src={splitwiseLogo} width="108" height="32" className="d-inline-block align-top" alt="splitwise" />
                     </a>
 
                     <div class="dropdown">

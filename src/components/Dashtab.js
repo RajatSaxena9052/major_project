@@ -1,16 +1,17 @@
 import React from "react";
-import Splitted from "./splitted";
-// import Activities from "./activities";
-// import Recentab from "./recenttab";
+import Splitted from "./Splitted";
+
 
 export default class Dashtab extends React.Component {
+
     constructor() {
         super()
+
         this.state = {
             friendName: "",
             description: "",
-            amountPaid: "",
-            equalSplit: "",
+            amountPaid: 0,
+            equalSplit: 0,
             selfPaid: true,
             balance: 0,
             owe: 0,
@@ -19,9 +20,23 @@ export default class Dashtab extends React.Component {
         }
     }
 
+    componentDidMount() {
+        // console.log("AHAAAAAAAAAA", JSON.parse(localStorage.getItem("data")));
+
+        this.setState(
+            {
+                transaction: Object.values(JSON.parse(localStorage.getItem("data")) || {})
+            }
+        )
+
+    }
+
+    prevData = JSON.parse(localStorage.getItem("data")) || {};
+
+
     addingExpenses = (event) => {
         event.preventDefault();
-        // console.log(this.state, "dsogj")
+
         let {
             balance,
             owe,
@@ -36,52 +51,54 @@ export default class Dashtab extends React.Component {
 
         if (selfPaid) {
             this.setState({
+
+                transaction: [...transaction, { friendName, description, equalSplit, selfPaid }],
                 owed: owed += equalSplit,
                 balance: balance += equalSplit
-            })
-        } else if (!selfPaid) {
 
-            this.setState(
-                {
-                    owe: owe += equalSplit,
-                    balance: balance -= equalSplit
-                }
-            )
+            }, () => {
+                console.log("Self");
+                localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
+            })
+
+        }
+        else {
+
+            this.setState({
+
+                transaction: [...transaction, { friendName, description, equalSplit, selfPaid }],
+                owe: owe += equalSplit,
+                balance: balance -= equalSplit
+
+            }, () => {
+                console.log("not self data");
+                localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
+            })
         }
 
-        this.setState(
-            {
-                transaction: [...transaction, { friendName, equalSplit, selfPaid }]
-            })
+        /*  this.setState(
+             {
+                 transaction: [...transaction, { friendName, equalSplit, selfPaid }]
+             })
+         localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
+  */
 
-        console.log(description,
-            equalSplit,
-            selfPaid
-        )
-
-
-        localStorage["data"] = JSON.stringify(this.state);
-
-
-
-        console.log(this.state.transaction);
-
-
-
+        // console.log(this.state.transaction);
     }
 
     amountInput = (e) => {
         this.setState(
             {
-                amountPaid: e.target.value,
+                amountPaid: e.target.value || 0,
                 equalSplit: e.target.value / 2
             }
         );
-
-        console.log(e);
     }
 
     render() {
+
+        // console.log("AHAAAAAAAAAA", JSON.parse(localStorage.getItem("data")));
+
         return (
             <div class="mx-auto">
 
@@ -142,7 +159,7 @@ export default class Dashtab extends React.Component {
 
                 <div>
                     {
-                        this.state.transaction.map((n) => <Splitted data={n} />)
+                        (this.state.transaction || []).map((n) => <Splitted data={n} />)
                     }
 
                 </div>
@@ -164,18 +181,18 @@ export default class Dashtab extends React.Component {
                             <div class="modal-body text-start">
                                 <div class="input-group input-group-sm mb-3">
                                     <span class="input-group-text" id="inputGroup-sizing-sm">With you and </span>
-                                    <input type="text" class="form-control" aria-label="Sizing example input" placeholder="Enter your friends name" onChange={(e) => this.setState({ friendName: e.target.value })} />
+                                    <input type="text" class="form-control" aria-label="Sizing example input" placeholder="Enter your friends name" onChange={(e) => this.setState({ friendName: e.target.value })} required />
                                 </div>
 
                                 <div class="mb-3">
                                     <h5>Description :</h5>
-                                    <input class="form-control" type="text" placeholder="Enter a description" onChange={(e) => { this.setState({ description: e.target.value }) }}></input>
+                                    <input class="form-control" type="text" placeholder="Enter a description" onChange={(e) => { this.setState({ description: e.target.value }) }} required></input>
                                 </div>
 
 
                                 <div class="mb-3">
                                     <h5>Total Amount Paid Rs:</h5>
-                                    <input class="form-control" type="text" placeholder="0.00" onChange={this.amountInput} />
+                                    <input class="form-control" type="number" min={0} placeholder="0.00" onChange={this.amountInput} required />
                                 </div>
 
                                 <h5>paid by you :</h5>

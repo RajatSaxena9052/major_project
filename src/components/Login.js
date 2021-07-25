@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Footer from "./footer";
+import Footer from "./Footer";
 import Joi from "joi";
 
 export default class Login extends React.Component {
