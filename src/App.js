@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import Loggedin from './dashboard/Loggedin';
+import Loggedin from './components/Loggedin';
 import Bar from './components/navbar';
 import Login from "./components/login";
 import Signup from "./components/signup";

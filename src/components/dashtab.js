@@ -197,7 +197,7 @@ export default class Dashtab extends React.Component {
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" onClick={this.addingExpenses}>Save changes</button>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={this.addingExpenses}>Save changes</button>
                             </div>
                         </div>
                     </div>

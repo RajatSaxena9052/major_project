@@ -71,7 +71,7 @@ export default class Signup extends React.Component {
                     });
                 }
             }
-
+            return
         }
     }
 
@@ -112,7 +112,7 @@ export default class Signup extends React.Component {
                             </div>
 
                             <div id="signup-google-btn-container">
-                                <button id="signupform-btn" type="button" class="btn btn-primary btn-lg" onClick={this.signup}>Sign me up!</button>
+                                <Link to="/login"><button id="signupform-btn" type="button" class="btn btn-primary btn-lg" onClick={this.signup}>Sign me up!</button></Link>
 
                             </div>
 

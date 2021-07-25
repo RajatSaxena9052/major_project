@@ -10,8 +10,7 @@ export default class Splitted extends React.Component {
         } = this.props.data;
 
         return (
-
-
+            
             selfPaid ?
                 <div class="container border-2" >
                     <div class="notification-content text-start border-1">
