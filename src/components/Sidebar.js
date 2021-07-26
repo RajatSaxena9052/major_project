@@ -18,13 +18,12 @@ export default class Sidebar extends React.Component {
                     </div>
 
                     <div class="col mb-2"  >
-
-                        <div class="col side-hover">All expenses</div>
+                        <NavLink exact style={{ textDecoration: "none" }} activeClassName="active-side-link" to="/loggedin/allexpenses"><div class="col side-hover">All expenses</div></NavLink>
                     </div>
 
                 </div>
 
-            </div>
+            </div >
         );
     }
 }

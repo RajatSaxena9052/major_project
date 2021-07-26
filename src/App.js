@@ -41,7 +41,7 @@ class App extends React.Component {
 
           < Route path="/signup" render={(props) => {
             return (
-              <Signup />
+              <Signup/>
             )
           }} />
 
@@ -72,6 +72,13 @@ class App extends React.Component {
               <Loggedin data={props} />
             )
           }} />
+
+          < Route path="/loggedin/allexpenses" exact render={() => {
+            return (
+              <Loggedin />
+            )
+          }} />
+
 
         </div >
       </Router>

@@ -6,19 +6,19 @@ export default class Splitted extends React.Component {
         // console.log(this.props)
         const {
             friendName,
-            equalSplit,
-            selfPaid
+            equalSplit = 0,
+            selfPaid = 0,
         } = this.props.data;
 
         return (
 
-    // selfPaid ?
-    < Link to = {`/loggedin/dashboard/${friendName}`}>
-        <div className="container" >
-            <div className="notification-content text-start">
-                <strong>{friendName}</strong><br /><font color={`${selfPaid ? "#5bc5a7" : "#ff652f"} `}>{selfPaid ? `Owes you Rs ${equalSplit}` : `You owe Rs ${equalSplit}`}</font>
-            </div>
-        </div >
+            // selfPaid ?
+            < Link to={`/loggedin/dashboard/${friendName}`}>
+                <div className="container" >
+                    <div className="notification-content text-start">
+                        <strong>{friendName}</strong><br /><font color={`${selfPaid ? "#5bc5a7" : "#ff652f"} `}>{selfPaid ? `Owes you Rs ${equalSplit}` : `You owe Rs ${equalSplit}`}</font>
+                    </div>
+                </div >
             </Link >
             // :
             // <div className="container" >
