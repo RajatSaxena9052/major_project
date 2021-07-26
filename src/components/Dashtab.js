@@ -1,5 +1,7 @@
 import React from "react";
 import Splitted from "./Splitted";
+import Joi from "joi";
+// import Modal from "./Modal";
 
 
 export default class Dashtab extends React.Component {
@@ -7,7 +9,9 @@ export default class Dashtab extends React.Component {
     constructor() {
         super()
 
+
         this.state = {
+            modal: "",
             friendName: "",
             description: "",
             amountPaid: 0,
@@ -16,8 +20,15 @@ export default class Dashtab extends React.Component {
             balance: 0,
             owe: 0,
             owed: 0,
-            transaction: []
+            transaction: [],
+            error: "",
+            DATA: null
         }
+    }
+
+    handleCallBack = (childData) => {
+        // this.setState({ DATA: childData })
+        console.log(childData);
     }
 
     componentDidMount() {
@@ -35,7 +46,6 @@ export default class Dashtab extends React.Component {
 
 
     addingExpenses = (event) => {
-        event.preventDefault();
 
         let {
             balance,
@@ -49,31 +59,74 @@ export default class Dashtab extends React.Component {
             transaction
         } = this.state;
 
-        if (selfPaid) {
+        amountPaid = Number(amountPaid);
+        console.log(amountPaid)
+
+        // if (friendName === "" || description === "" || amountPaid < 0.01 || ) {
+
+        const schema = Joi.object({
+            friendName: Joi.string().required().min(3).max(30),
+            description: Joi.string().required().min(3).max(30),
+            amountPaid: Joi.number().required().min(0.01).max(99999999)
+        })
+
+        const result = schema.validate({ friendName, description, amountPaid });
+
+        if (result.error) {
+
             this.setState({
+                modal: "",
+                error: result.error.details[0].message.replaceAll('"', "")
 
-                transaction: [...transaction, { friendName, description, equalSplit, selfPaid }],
-                owed: owed += equalSplit,
-                balance: balance += equalSplit
+            })
+            // event.preventDefault();
 
-            }, () => {
-                console.log("Self");
-                localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
+            return false;
+
+        } else {
+            // event.close();
+            this.setState({
+                modal: "modal",
+                error: ""
             })
 
-        }
-        else {
 
-            this.setState({
 
-                transaction: [...transaction, { friendName, description, equalSplit, selfPaid }],
-                owe: owe += equalSplit,
-                balance: balance -= equalSplit
+            console.log(result);
 
-            }, () => {
-                console.log("not self data");
-                localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
-            })
+            //     this.setState({
+            //         error: ""
+            //     })
+
+            // }
+
+            if (selfPaid) {
+                this.setState({
+
+                    transaction: [...transaction, { friendName, description, equalSplit, selfPaid }],
+                    owed: owed += equalSplit,
+                    balance: balance += equalSplit
+
+                }, () => {
+                    // console.log("Self");
+                    localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
+                })
+
+            }
+            else {
+
+                this.setState({
+
+                    transaction: [...transaction, { friendName, description, equalSplit, selfPaid }],
+                    owe: owe += equalSplit,
+                    balance: balance -= equalSplit
+
+                }, () => {
+                    // console.log("not self data");
+                    localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
+                })
+            }
+            return true
         }
 
         /*  this.setState(
@@ -81,7 +134,7 @@ export default class Dashtab extends React.Component {
                  transaction: [...transaction, { friendName, equalSplit, selfPaid }]
              })
          localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
-  */
+    */
 
         // console.log(this.state.transaction);
     }
@@ -94,6 +147,8 @@ export default class Dashtab extends React.Component {
             }
         );
     }
+
+
 
     render() {
 
@@ -128,12 +183,12 @@ export default class Dashtab extends React.Component {
 
                 <div class="row dash-back border-2 border-bottom">
 
-                    <div class="block col" >
-                        <div class="title text-dark">
+                    <div class="block col"  >
+                        <div class="title">
                             total balance
                         </div>
 
-                        <span class="positive">
+                        <span class="positive" style={{ color: "#5bc5a7" }}>
                             Rs {this.state.balance}
                         </span>
                     </div>
@@ -142,7 +197,7 @@ export default class Dashtab extends React.Component {
                         <div class="title  text-dark">
                             you owe
                         </div>
-                        <span class="negative">
+                        <span class="negative" style={{ color: "#ff652f" }}>
                             Rs {this.state.owe}
                         </span>
                     </div>
@@ -151,7 +206,7 @@ export default class Dashtab extends React.Component {
                         <div class="title  text-dark">
                             you are owed
                         </div>
-                        <span class="positive">
+                        <span class="positive" style={{ color: "#5bc5a7" }}>
                             Rs {this.state.owed}
                         </span>
                     </div>
@@ -165,24 +220,33 @@ export default class Dashtab extends React.Component {
                 </div>
 
 
+                {/* <Modal parentCallBack={this.addingExpenses} /> */}
 
 
-
-                {/* <!-- Modal -->s */}
+                {/*  <!-- Modal -->s*/}
                 <div class="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+
+                    <div class="modal-dialog ">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Add An Expense</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            {/* modal body */}
+                            {/* //  modal body */}
+                            {this.state.errors}
+
+                            <div>
+                                <div class="bg-danger">
+                                    {this.state.error}
+                                </div>
+                            </div>
 
                             <div class="modal-body text-start">
                                 <div class="input-group input-group-sm mb-3">
                                     <span class="input-group-text" id="inputGroup-sizing-sm">With you and </span>
                                     <input type="text" class="form-control" aria-label="Sizing example input" placeholder="Enter your friends name" onChange={(e) => this.setState({ friendName: e.target.value })} required />
                                 </div>
+
 
                                 <div class="mb-3">
                                     <h5>Description :</h5>
@@ -192,7 +256,7 @@ export default class Dashtab extends React.Component {
 
                                 <div class="mb-3">
                                     <h5>Total Amount Paid Rs:</h5>
-                                    <input class="form-control" type="number" min={0} placeholder="0.00" onChange={this.amountInput} required />
+                                    <input class="form-control" type="number" min={"0"} placeholder="0.00" onChange={this.amountInput} required />
                                 </div>
 
                                 <h5>paid by you :</h5>
@@ -214,10 +278,11 @@ export default class Dashtab extends React.Component {
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={this.addingExpenses}>Save changes</button>
+                                <button type="button" class="btn btn-primary" onClick={this.addingExpenses} data-bs-dismiss={this.state.modal} > Save changes</button>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
 
