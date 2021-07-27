@@ -17,7 +17,7 @@ export default class Activities extends React.Component {
                 selfPaid
             } = d;
 
-            console.log(d);
+            // console.log(d);
 
             return selfPaid ?
                 <div class="container" >

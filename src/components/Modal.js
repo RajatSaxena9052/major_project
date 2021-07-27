@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
+import Joi from 'joi';
+import { v4 as uuidv4 } from 'uuid';
 // import Dashtab from './Dashtab';
 
 export default class Modal extends Component {
     constructor(props) {
         super(props)
 
+        // console.log(this.props);
+
         this.state = {
+            id: uuidv4(),
             modal: "",
             friendName: "",
             description: "",
@@ -21,6 +26,105 @@ export default class Modal extends Component {
     }
 
 
+    componentDidMount() {
+        // console.log("AHAAAAAAAAAA", JSON.parse(localStorage.getItem("data")));
+
+        this.setState(
+            {
+                // ...this.state,
+                transaction: Object.values(JSON.parse(localStorage.getItem("data")) || {})
+            }
+        )
+    }
+
+    addingExpenses = (data) => {
+        console.log(data)
+
+        let {
+            id,
+            balance,
+            owe,
+            owed,
+            friendName,
+            description,
+            amountPaid,
+            equalSplit,
+            selfPaid,
+            transaction
+        } = this.state;
+
+        amountPaid = Number(amountPaid);
+        // console.log(amountPaid)
+
+        // if (friendName === "" || description === "" || amountPaid < 0.01 || ) {
+
+        const schema = Joi.object({
+            friendName: Joi.string().required().min(3).max(30),
+            description: Joi.string().required().min(3).max(30),
+            amountPaid: Joi.number().required().min(0.01).max(99999999)
+        })
+
+        const result = schema.validate({ friendName, description, amountPaid });
+
+        if (result.error) {
+
+            this.setState({
+                modal: "",
+                error: result.error.details[0].message.replaceAll('"', "")
+            })
+            // event.preventDefault();
+
+            return false;
+
+        } else {
+            // event.close();
+            this.setState({
+                modal: "modal",
+                error: ""
+            })
+
+            // console.log(result);
+
+
+            if (selfPaid) {
+
+                this.setState({
+                    id: uuidv4(),
+                    transaction: [...transaction, { id, friendName, description, equalSplit, selfPaid, amountPaid }],
+                    owed: owed += equalSplit,
+                    balance: balance += equalSplit
+
+                }, () => {
+                    // console.log("Self");
+                    localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
+                })
+
+            }
+            else {
+
+                this.setState({
+                    id: uuidv4(),
+                    transaction: [...transaction, { id, friendName, description, equalSplit, selfPaid, amountPaid }],
+                    owe: owe += equalSplit,
+                    balance: balance -= equalSplit
+
+                }, () => {
+                    // console.log("not self data");
+                    localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
+                })
+            }
+            return true
+        }
+
+    }
+
+
+
+
+
+
+
+
     amountInput = (e) => {
         this.setState(
             {
@@ -31,13 +135,15 @@ export default class Modal extends Component {
     }
 
     onTrigger = (event) => {
-        console.log('here', this.props.parentCallBack(this.state))
+        // console.log('here', this.props.parentCallBack(this.state));
+        // this.props.parentCallBack(this.state);
         // this.props.parentCallback();
         // event.preventDefault();
     }
 
     render() {
-        console.log(this.props.parentCallBack)
+        // console.log(this.state)
+        console.log(localStorage.getItem("data"))
 
         return (
             <div>
@@ -53,7 +159,7 @@ export default class Modal extends Component {
 
                             <div>
                                 <div class="bg-danger">
-                                    {/* {this.state.error} */}
+                                    {this.state.error}
                                 </div>
                             </div>
 
@@ -94,7 +200,7 @@ export default class Modal extends Component {
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" onClick={this.onTrigger} /* data-bs-dismiss={this.state.modal} */ > Save changes</button>
+                                <button type="button" class="btn btn-primary" onClick={this.addingExpenses} /* data-bs-dismiss={this.state.modal} */ > Save changes</button>
                             </div>
                         </div>
                     </div>

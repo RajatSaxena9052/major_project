@@ -1,10 +1,12 @@
 import React from "react";
+import { Route } from "react-router-dom";
+
 import Navbar from "./Nav";
 import Sidebar from "./Sidebar";
 import Dashtab from "./Dashtab";
 import Recentab from "./Recenttab";
-import { Route } from "react-router-dom";
-import Allexpenses from "./Allexpenses";
+import Allexpensetab from "./Allexpensetab";
+import Modal from "./Modal";
 
 export default class Loggedin extends React.Component {
     render() {
@@ -38,7 +40,15 @@ export default class Loggedin extends React.Component {
                             <Route path="/loggedin/allexpenses" exact render={(props) => {
                                 return (
                                     <>
-                                        <Allexpenses />
+                                        <Allexpensetab />
+                                    </>
+                                )
+                            }} />
+
+                            <Route path="/loggedin/addexpenses" exact render={(props) => {
+                                return (
+                                    <>
+                                        <Modal />
                                     </>
                                 )
                             }} />

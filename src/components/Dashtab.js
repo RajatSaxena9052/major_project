@@ -1,6 +1,8 @@
 import React from "react";
 import Splitted from "./Splitted";
-import Joi from "joi";
+// import Joi from "joi";
+import { Link } from "react-router-dom";
+
 // import Modal from "./Modal";
 
 
@@ -26,127 +28,127 @@ export default class Dashtab extends React.Component {
         }
     }
 
-    handleCallBack = (childData) => {
-        // this.setState({ DATA: childData })
-        console.log(childData);
-    }
+    // handleCallBack = (childData) => {
+    //     // this.setState({ DATA: childData });
+    //     console.log(childData, "parent se aya data");
+    // }
 
     componentDidMount() {
         // console.log("AHAAAAAAAAAA", JSON.parse(localStorage.getItem("data")));
 
         this.setState(
             {
+                // ...this.state,
                 transaction: Object.values(JSON.parse(localStorage.getItem("data")) || {})
             }
         )
-
     }
 
     prevData = JSON.parse(localStorage.getItem("data")) || {};
 
 
-    addingExpenses = (event) => {
+    // addingExpenses = (event) => {
+    //     // console.log(data)
 
-        let {
-            balance,
-            owe,
-            owed,
-            friendName,
-            description,
-            amountPaid,
-            equalSplit,
-            selfPaid,
-            transaction
-        } = this.state;
+    //     let {
+    //         balance,
+    //         owe,
+    //         owed,
+    //         friendName,
+    //         description,
+    //         amountPaid,
+    //         equalSplit,
+    //         selfPaid,
+    //         transaction
+    //     } = this.state;
 
-        amountPaid = Number(amountPaid);
-        console.log(amountPaid)
+    //     amountPaid = Number(amountPaid);
+    //     // console.log(amountPaid)
 
-        // if (friendName === "" || description === "" || amountPaid < 0.01 || ) {
+    //     // if (friendName === "" || description === "" || amountPaid < 0.01 || ) {
 
-        const schema = Joi.object({
-            friendName: Joi.string().required().min(3).max(30),
-            description: Joi.string().required().min(3).max(30),
-            amountPaid: Joi.number().required().min(0.01).max(99999999)
-        })
+    //     const schema = Joi.object({
+    //         friendName: Joi.string().required().min(3).max(30),
+    //         description: Joi.string().required().min(3).max(30),
+    //         amountPaid: Joi.number().required().min(0.01).max(99999999)
+    //     })
 
-        const result = schema.validate({ friendName, description, amountPaid });
+    //     const result = schema.validate({ friendName, description, amountPaid });
 
-        if (result.error) {
+    //     if (result.error) {
 
-            this.setState({
-                modal: "",
-                error: result.error.details[0].message.replaceAll('"', "")
+    //         this.setState({
+    //             modal: "",
+    //             error: result.error.details[0].message.replaceAll('"', "")
+    //         })
+    //         // event.preventDefault();
 
-            })
-            // event.preventDefault();
+    //         return false;
 
-            return false;
-
-        } else {
-            // event.close();
-            this.setState({
-                modal: "modal",
-                error: ""
-            })
-
+    //     } else {
+    //         // event.close();
+    //         this.setState({
+    //             modal: "modal",
+    //             error: ""
+    //         })
 
 
-            console.log(result);
 
-            //     this.setState({
-            //         error: ""
-            //     })
+    //         console.log(result);
 
-            // }
+    //         //     this.setState({
+    //         //         error: ""
+    //         //     })
 
-            if (selfPaid) {
-                this.setState({
+    //         // }
 
-                    transaction: [...transaction, { friendName, description, equalSplit, selfPaid }],
-                    owed: owed += equalSplit,
-                    balance: balance += equalSplit
+    //         if (selfPaid) {
+    //             this.setState({
 
-                }, () => {
-                    // console.log("Self");
-                    localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
-                })
+    //                 transaction: [...transaction, { friendName, description, equalSplit, selfPaid }],
+    //                 owed: owed += equalSplit,
+    //                 balance: balance += equalSplit
 
-            }
-            else {
+    //             }, () => {
+    //                 // console.log("Self");
+    //                 localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
+    //             })
 
-                this.setState({
+    //         }
+    //         else {
 
-                    transaction: [...transaction, { friendName, description, equalSplit, selfPaid }],
-                    owe: owe += equalSplit,
-                    balance: balance -= equalSplit
+    //             this.setState({
 
-                }, () => {
-                    // console.log("not self data");
-                    localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
-                })
-            }
-            return true
-        }
+    //                 transaction: [...transaction, { friendName, description, equalSplit, selfPaid }],
+    //                 owe: owe += equalSplit,
+    //                 balance: balance -= equalSplit
 
-        /*  this.setState(
-             {
-                 transaction: [...transaction, { friendName, equalSplit, selfPaid }]
-             })
-         localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
-    */
+    //             }, () => {
+    //                 // console.log("not self data");
+    //                 localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
+    //             })
+    //         }
+    //         return true
+    //     }
 
-        // console.log(this.state.transaction);
-    }
+    //     /*  this.setState(
+    //          {
+    //              transaction: [...transaction, { friendName, equalSplit, selfPaid }]
+    //          })
+    //      localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
+    // */
 
-    amountInput = (e) => {
-        this.setState(
-            {
-                amountPaid: e.target.value || 0,
-                equalSplit: e.target.value / 2
-            }
-        );
-    }
+    //     // console.log(this.state.transaction);
+    // }
+
+    // amountInput = (e) => {
+    //     this.setState(
+    //         {
+    //             amountPaid: e.target.value || 0,
+    //             equalSplit: e.target.value / 2
+    //         }
+    //     );
+    // }
 
 
 
@@ -169,9 +171,17 @@ export default class Dashtab extends React.Component {
                             <div class="col d-flex justify-content-end">
 
                                 {/* <!-- Button trigger modal --> */}
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Add Expense
-                                </button>
+                                <Link to={{
+                                    pathname: "/loggedin/addexpenses",
+                                    state: {
+
+                                    }
+                                }}
+                                >
+
+                                    <button type="button" class="btn btn-primary" /* data-bs-toggle="modal" data-bs-target="#exampleModal" */>
+                                        Add Expense
+                                    </button></Link>
 
                                 {/* <button type="button" class="btn btn-secondary">Settle up</button> */}
                             </div>
@@ -224,6 +234,7 @@ export default class Dashtab extends React.Component {
 
 
                 {/*  <!-- Modal -->s*/}
+                {/* 
                 <div class="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
                     <div class="modal-dialog ">
@@ -232,7 +243,7 @@ export default class Dashtab extends React.Component {
                                 <h5 class="modal-title" id="exampleModalLabel">Add An Expense</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            {/* //  modal body */}
+                             //  modal body 
                             {this.state.errors}
 
                             <div>
@@ -281,9 +292,9 @@ export default class Dashtab extends React.Component {
                                 <button type="button" class="btn btn-primary" onClick={this.addingExpenses} data-bs-dismiss={this.state.modal} > Save changes</button>
                             </div>
                         </div>
-                    </div>
+                    </div > 
 
-                </div>
+            </div >*/}
 
 
 
