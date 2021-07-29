@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Allexpenses from './Allexpenses';
+import { connect } from "react-redux";
 
-export default class Allexpensetab extends React.Component {
+class Allexpensetab extends React.Component {
     constructor() {
         super()
 
@@ -17,12 +18,14 @@ export default class Allexpensetab extends React.Component {
     componentDidMount() {
         // console.log("AHAAAAAAAAAA", JSON.parse(localStorage.getItem("data")));
 
+
         this.setState({
             // ...this.state,
-            transaction: Object.values(JSON.parse(localStorage.getItem("data")) || {})
+            // transaction: Object.values(JSON.parse(localStorage.getItem("data")) || {})
+            transaction: [...this.props.userList]
         })
     }
-    
+
 
     render() {
         // console.log(this.state.transaction)
@@ -68,3 +71,11 @@ export default class Allexpensetab extends React.Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        userList: state.userData
+    }
+}
+
+
+export default connect(mapStateToProps)(Allexpensetab)

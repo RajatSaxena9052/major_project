@@ -2,12 +2,16 @@ import React, { Component } from 'react'
 import Joi from 'joi';
 import { v4 as uuidv4 } from 'uuid';
 // import Dashtab from './Dashtab';
+import store from '../redux/store';
+import { connect } from 'react-redux';
+import { updator, addUser } from "../redux";
 
-export default class Modal extends Component {
+
+class Modal extends Component {
     constructor(props) {
         super(props)
-
-        // console.log(this.props);
+        console.log(store.getState())
+        console.log(this.props.updator);
 
         this.state = {
             id: uuidv4(),
@@ -38,7 +42,7 @@ export default class Modal extends Component {
     }
 
     addingExpenses = (data) => {
-        console.log(data)
+        // console.log(data)
 
         let {
             id,
@@ -84,7 +88,7 @@ export default class Modal extends Component {
             })
 
             // console.log(result);
-
+            this.props.addUserHandler({ id, friendName, description, equalSplit, selfPaid, amountPaid })
 
             if (selfPaid) {
 
@@ -119,12 +123,6 @@ export default class Modal extends Component {
     }
 
 
-
-
-
-
-
-
     amountInput = (e) => {
         this.setState(
             {
@@ -143,7 +141,7 @@ export default class Modal extends Component {
 
     render() {
         // console.log(this.state)
-        console.log(localStorage.getItem("data"))
+        // console.log(localStorage.getItem("data"))
 
         return (
             <div>
@@ -153,7 +151,7 @@ export default class Modal extends Component {
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Add An Expense</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                {/* <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> */}
                             </div>
                             {/* modal body */}
 
@@ -199,8 +197,8 @@ export default class Modal extends Component {
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" onClick={this.addingExpenses} /* data-bs-dismiss={this.state.modal} */ > Save changes</button>
+                                {/* <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}
+                                <button type="button" class="btn btn-primary" onClick={this.addingExpenses}/* {this.props.updator} */ /* data-bs-dismiss={this.state.modal} */ > Save changes</button>
                             </div>
                         </div>
                     </div>
@@ -209,3 +207,24 @@ export default class Modal extends Component {
         )
     }
 }
+
+// const mapStateToProps = (state) => {
+//     return {
+//         : state.friendName
+//     }
+// }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updator: () => dispatch(updator()),
+        addUserHandler: (payload) => dispatch(addUser(payload))
+    }
+}
+
+
+
+export default connect(
+    null,
+    // mapStateToProps,
+    mapDispatchToProps
+)(Modal);

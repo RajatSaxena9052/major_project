@@ -1,6 +1,6 @@
 import React from "react";
 
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FaFlag } from "react-icons/fa";
 import { VscListUnordered } from "react-icons/vsc";
 import { BsPlusSquare } from "react-icons/bs";

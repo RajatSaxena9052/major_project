@@ -1,15 +1,15 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import Splitted from "./Splitted";
-// import Joi from "joi";
 import { Link } from "react-router-dom";
 
-// import Modal from "./Modal";
+
+class Dashtab extends React.Component {
 
 
-export default class Dashtab extends React.Component {
-
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
 
         this.state = {
@@ -33,18 +33,44 @@ export default class Dashtab extends React.Component {
     //     console.log(childData, "parent se aya data");
     // }
 
-    componentDidMount() {
-        // console.log("AHAAAAAAAAAA", JSON.parse(localStorage.getItem("data")));
-
+    balanceLoader = () => {
         this.setState(
             {
-                // ...this.state,
-                transaction: Object.values(JSON.parse(localStorage.getItem("data")) || {})
+                transaction: [...this.props.userList]
             }
         )
     }
 
-    prevData = JSON.parse(localStorage.getItem("data")) || {};
+
+    async componentDidMount() {
+
+        await this.balanceLoader()
+
+        console.log(this.state.transaction);
+
+        this.state.transaction.forEach(t => {
+            console.log(t)
+            if (t.selfPaid === true) {
+                this.setState(
+                    {
+                        owed: this.state.owed + t.equalSplit,
+                        balance: this.state.balance + t.equalSplit
+
+                    })
+            }
+            else {
+                this.setState({
+                    owe: this.state.owe + t.equalSplit,
+                    balance: this.state.balance - t.equalSplit
+                })
+            }
+        })
+
+    }
+
+
+    /*  */
+    // prevData = JSON.parse(localStorage.getItem("data")) || {};
 
 
     // addingExpenses = (event) => {
@@ -153,11 +179,14 @@ export default class Dashtab extends React.Component {
 
 
     render() {
+        console.log("render")
+
+
 
         // console.log("AHAAAAAAAAAA", JSON.parse(localStorage.getItem("data")));
 
         return (
-            <div class="mx-auto">
+            <div class="mx-auto" >
 
                 < div class="row d-flex align-items-center justify-content-between dash-back p-2  border-2 border-bottom" >
 
@@ -173,9 +202,7 @@ export default class Dashtab extends React.Component {
                                 {/* <!-- Button trigger modal --> */}
                                 <Link to={{
                                     pathname: "/loggedin/addexpenses",
-                                    state: {
 
-                                    }
                                 }}
                                 >
 
@@ -198,7 +225,7 @@ export default class Dashtab extends React.Component {
                             total balance
                         </div>
 
-                        <span class="positive" style={{ color: "#5bc5a7" }}>
+                        <span class="positive" style={this.state.balance > 0 ? { color: "#5bc5a7" } : { color: "#ff652f" }}>
                             Rs {this.state.balance}
                         </span>
                     </div>
@@ -304,3 +331,13 @@ export default class Dashtab extends React.Component {
         );
     }
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+        userList: state.userData
+    }
+}
+
+
+export default connect(mapStateToProps)(Dashtab)

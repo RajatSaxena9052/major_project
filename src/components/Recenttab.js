@@ -1,10 +1,15 @@
 import React from "react";
 import Activities from "./Activities";
+import { connect } from "react-redux";
 
-export default class Recentab extends React.Component {
+class Recentab extends React.Component {
 
     render() {
-        const data = JSON.parse(localStorage.getItem("data")) || {};
+        const { userList = [] } = this.props
+        console.log(userList);
+
+        // const data = JSON.parse(localStorage.getItem("data")) || {};
+        const data = userList;
         // console.log(data)
 
         return (
@@ -25,3 +30,12 @@ export default class Recentab extends React.Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        userList: state.userData
+    }
+}
+
+export default connect(
+    mapStateToProps
+)(Recentab)

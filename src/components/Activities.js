@@ -8,9 +8,9 @@ export default class Activities extends React.Component {
         //     selfPaid
         // } = this.props.data;
 
-        const { data = {} } = this.props;
+        const { data = [] } = this.props;
 
-        return Object.values(data).map(d => {
+        return data.map(d => {
             const {
                 description,
                 equalSplit,
