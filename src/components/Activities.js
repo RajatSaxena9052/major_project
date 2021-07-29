@@ -1,12 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default class Activities extends React.Component {
     render() {
-        // const {
-        //     description,
-        //     equalSplit,
-        //     selfPaid
-        // } = this.props.data;
 
         const { data = [] } = this.props;
 
@@ -17,19 +13,16 @@ export default class Activities extends React.Component {
                 selfPaid
             } = d;
 
-            // console.log(d);
-
             return selfPaid ?
-                <div class="container" >
+                <div class="container p-2" >
                     <div class="notification-content text-start border-1">
-                        <strong>You</strong> added <strong>{description}</strong>.<br /><font color="#5bc5a7">You get back {equalSplit}</font>
-
+                        <Link to="/loggedin/allexpenses">  <strong>You</strong> added <strong>{description}</strong>.<br /><font color="#5bc5a7">You get back {equalSplit}</font></Link>
                     </div>
                 </div >
                 :
-                < div class="container" >
+                < div class="container p-2" >
                     <div class="notification-content text-start border-1">
-                        <strong>You</strong> added <strong>{description}</strong>.<br /><font color="#ff652f">You owe {equalSplit}</font>
+                        <Link to="/loggedin/allexpenses"><strong>You</strong> added <strong>{description}</strong>.<br /><font color="#ff652f">You owe {equalSplit}</font></Link>
 
                     </div>
                 </div >

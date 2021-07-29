@@ -12,20 +12,13 @@ export default class Splitted extends React.Component {
 
         return (
 
-            // selfPaid ?
-            < Link to={`/loggedin/dashboard/${friendName}`}>
-                <div className="container" >
-                    <div className="notification-content text-start">
-                        <strong>{friendName}</strong><br /><font color={`${selfPaid ? "#5bc5a7" : "#ff652f"} `}>{selfPaid ? `Owes you Rs ${equalSplit}` : `You owe Rs ${equalSplit}`}</font>
-                    </div>
-                </div >
-            </Link >
-            // :
-            // <div className="container" >
-            //     <div className="notification-content text-start border-1">
-            //         <strong>{friendName}</strong> <br /><font color="">You owe Rs {equalSplit}</font>
-            //     </div>
-            // </div >
+            <div className="container p-2" >
+                <div className="notification-content text-start">
+                    < Link to={`/loggedin/dashboard/${friendName}`}> <strong>{friendName}</strong><br /><font color={`${selfPaid ? "#5bc5a7" : "#ff652f"} `}>{selfPaid ? `Owes you Rs ${equalSplit}` : `You owe Rs ${equalSplit}`}</font>  </Link >
+                </div>
+            </div >
+
+
         )
     }
 }

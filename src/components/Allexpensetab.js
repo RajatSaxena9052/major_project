@@ -12,23 +12,17 @@ class Allexpensetab extends React.Component {
         }
     }
 
-
-
-
     componentDidMount() {
-        // console.log("AHAAAAAAAAAA", JSON.parse(localStorage.getItem("data")));
-
 
         this.setState({
-            // ...this.state,
-            // transaction: Object.values(JSON.parse(localStorage.getItem("data")) || {})
             transaction: [...this.props.userList]
         })
+
     }
 
 
     render() {
-        // console.log(this.state.transaction)
+
         return (
             <div>
                 < div class="row d-flex align-items-center justify-content-between dash-back p-2  border-2 border-bottom" >
@@ -43,16 +37,11 @@ class Allexpensetab extends React.Component {
                             <div class="col d-flex justify-content-end">
 
                                 {/* <!-- Button trigger modal --> */}
-                                <Link to={{
-                                    pathname: "/loggedin/addexpenses",
-                                    state: {
-
-                                    }
-                                }}
-                                >
+                                <Link to="/loggedin/addexpenses">
                                     <button type="button" class="btn btn-primary" /* data-bs-toggle="modal" data-bs-target="#exampleModal" */>
                                         Add an expense
-                                    </button></Link>
+                                    </button>
+                                </Link>
 
                                 {/* <button type="button" class="btn btn-secondary">Settle up</button> */}
                             </div>
@@ -63,7 +52,6 @@ class Allexpensetab extends React.Component {
                 <div>
                     {
                         (this.state.transaction || []).map((n) => <Allexpenses data={n} />)
-                        // (this.state.transaction || []).map((n) => <Splitted data={n} />)
                     }
 
                 </div>
@@ -71,6 +59,7 @@ class Allexpensetab extends React.Component {
         )
     }
 }
+
 const mapStateToProps = (state) => {
     return {
         userList: state.userData

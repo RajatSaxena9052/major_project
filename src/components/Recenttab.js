@@ -1,6 +1,7 @@
 import React from "react";
 import Activities from "./Activities";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class Recentab extends React.Component {
 
@@ -26,7 +27,7 @@ class Recentab extends React.Component {
                     <Activities data={data} />
                 </div>
 
-            </div>
+            </div >
         );
     }
 }
