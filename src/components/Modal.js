@@ -26,6 +26,7 @@ class Modal extends Component {
             owed: 0,
             transaction: [],
             error: "",
+            status: ""
         }
     }
 
@@ -84,8 +85,15 @@ class Modal extends Component {
             // event.close();
             this.setState({
                 modal: "modal",
-                error: ""
+                error: "",
+                status: "Expense Added"
             })
+
+            setTimeout(() => {
+                this.setState({
+                    status: ""
+                })
+            }, 3 * 1000)
 
             // console.log(result);
             this.props.addUserHandler({ id, friendName, description, equalSplit, selfPaid, amountPaid })
@@ -132,12 +140,12 @@ class Modal extends Component {
         );
     }
 
-    onTrigger = (event) => {
-        // console.log('here', this.props.parentCallBack(this.state));
-        // this.props.parentCallBack(this.state);
-        // this.props.parentCallback();
-        // event.preventDefault();
-    }
+    // onTrigger = (event) => {
+    // console.log('here', this.props.parentCallBack(this.state));
+    // this.props.parentCallBack(this.state);
+    // this.props.parentCallback();
+    // event.preventDefault();
+    // }
 
     render() {
         // console.log(this.state)
@@ -197,6 +205,16 @@ class Modal extends Component {
 
                             </div>
                             <div class="modal-footer">
+
+                                <div>
+                                    <div class="bg-success text-white">
+
+                                        {this.state.status}
+
+
+                                    </div>
+
+                                </div>
                                 {/* <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}
                                 <button type="button" class="btn btn-primary" onClick={this.addingExpenses}/* {this.props.updator} */ /* data-bs-dismiss={this.state.modal} */ > Save changes</button>
                             </div>
