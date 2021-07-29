@@ -32,7 +32,7 @@ class Allexpensetab extends React.Component {
                     </div>
 
 
-                    <div class="col">
+                    <div class="col" >
                         <div class="row">
                             <div class="col d-flex justify-content-end">
 

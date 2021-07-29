@@ -1,12 +1,62 @@
 import React from "react";
-
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
+
 import { FaFlag } from "react-icons/fa";
 import { VscListUnordered } from "react-icons/vsc";
 import { BsPlusSquare } from "react-icons/bs";
 
-export default class Sidebar extends React.Component {
+import FriendsList from "./FriendsList";
+
+
+class Sidebar extends React.Component {
+    constructor() {
+        super()
+
+        this.state = {
+            friendsList: []
+        }
+    }
+    arr = [];
+
+    componentDidMount() {
+        const { userList } = this.props;
+
+        userList.forEach(element => {
+
+            if (this.arr.indexOf(element.friendName) === -1) {
+                // console.log(element.friendName, this.arr);
+                this.arr = [...this.arr, element.friendName]
+            }
+
+        });
+
+        this.setState({
+            friendsList: [...this.state.friendsList, ...this.arr]
+        })
+    }
+
+    componentWillUnmount() {
+        const { userList } = this.props;
+
+        userList.forEach(element => {
+
+            if (this.arr.indexOf(element.friendName) === -1) {
+                // console.log(element.friendName, this.arr);
+                this.arr = [...this.arr, element.friendName]
+            }
+
+        });
+
+        this.setState({
+            friendsList: [...this.state.friendsList, ...this.arr]
+        })
+    }
+
     render() {
+        // console.log(this.state.friendsList, "FROM SIDEBAR")
+
+
         return (
             <div class="col"  >
                 <div class="col text-start">
@@ -28,9 +78,28 @@ export default class Sidebar extends React.Component {
                         <NavLink exact style={{ textDecoration: "none" }} activeClassName="active-side-link" to="/loggedin/addexpenses"><div class="col side-hover"><BsPlusSquare /> Add expenses</div></NavLink>
                     </div>
 
+                    <div class="col mb-2"  >
+                        <div class="col bg-light" >Friends</div>
+                    </div>
+                    <div>
+                        {(this.state.friendsList || []).map(s => <FriendsList name={s} />)}
+                    </div>
+
                 </div>
 
             </div >
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        userList: state.userData
+    }
+}
+
+
+export default connect(
+    mapStateToProps
+)(Sidebar);
+

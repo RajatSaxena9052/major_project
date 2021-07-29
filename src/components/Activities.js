@@ -16,13 +16,13 @@ export default class Activities extends React.Component {
             return selfPaid ?
                 <div class="container p-2" >
                     <div class="notification-content text-start border-1">
-                        <Link to="/loggedin/allexpenses">  <strong>You</strong> added <strong>{description}</strong>.<br /><font color="#5bc5a7">You get back {equalSplit}</font></Link>
+                        <Link to="/loggedin/allexpenses">  <strong>You</strong> added <strong>{description}</strong>.<br /><font color="#5bc5a7">You get back Rs {equalSplit}</font></Link>
                     </div>
                 </div >
                 :
                 < div class="container p-2" >
                     <div class="notification-content text-start border-1">
-                        <Link to="/loggedin/allexpenses"><strong>You</strong> added <strong>{description}</strong>.<br /><font color="#ff652f">You owe {equalSplit}</font></Link>
+                        <Link to="/loggedin/allexpenses"><strong>You</strong> added <strong>{description}</strong>.<br /><font color="#ff652f">You owe Rs {equalSplit}</font></Link>
 
                     </div>
                 </div >

@@ -7,6 +7,7 @@ import Dashtab from "./Dashtab";
 import Recentab from "./Recenttab";
 import Allexpensetab from "./Allexpensetab";
 import Modal from "./Modal";
+import Individual from "./Individual";
 
 export default class Loggedin extends React.Component {
     render() {
@@ -49,6 +50,14 @@ export default class Loggedin extends React.Component {
                                 return (
                                     <>
                                         <Modal />
+                                    </>
+                                )
+                            }} />
+
+                            <Route path="/loggedin/friends/:id" exact render={(props) => {
+                                return (
+                                    <>
+                                        <Individual {...props} />
                                     </>
                                 )
                             }} />

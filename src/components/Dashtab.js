@@ -46,10 +46,10 @@ class Dashtab extends React.Component {
 
         await this.balanceLoader()
 
-        console.log(this.state.transaction);
+        // console.log(this.state.transaction);
 
         this.state.transaction.forEach(t => {
-            console.log(t)
+            // console.log(t)
             if (t.selfPaid === true) {
                 this.setState(
                     {
@@ -68,122 +68,8 @@ class Dashtab extends React.Component {
 
     }
 
-
-    /*  */
-    // prevData = JSON.parse(localStorage.getItem("data")) || {};
-
-
-    // addingExpenses = (event) => {
-    //     // console.log(data)
-
-    //     let {
-    //         balance,
-    //         owe,
-    //         owed,
-    //         friendName,
-    //         description,
-    //         amountPaid,
-    //         equalSplit,
-    //         selfPaid,
-    //         transaction
-    //     } = this.state;
-
-    //     amountPaid = Number(amountPaid);
-    //     // console.log(amountPaid)
-
-    //     // if (friendName === "" || description === "" || amountPaid < 0.01 || ) {
-
-    //     const schema = Joi.object({
-    //         friendName: Joi.string().required().min(3).max(30),
-    //         description: Joi.string().required().min(3).max(30),
-    //         amountPaid: Joi.number().required().min(0.01).max(99999999)
-    //     })
-
-    //     const result = schema.validate({ friendName, description, amountPaid });
-
-    //     if (result.error) {
-
-    //         this.setState({
-    //             modal: "",
-    //             error: result.error.details[0].message.replaceAll('"', "")
-    //         })
-    //         // event.preventDefault();
-
-    //         return false;
-
-    //     } else {
-    //         // event.close();
-    //         this.setState({
-    //             modal: "modal",
-    //             error: ""
-    //         })
-
-
-
-    //         console.log(result);
-
-    //         //     this.setState({
-    //         //         error: ""
-    //         //     })
-
-    //         // }
-
-    //         if (selfPaid) {
-    //             this.setState({
-
-    //                 transaction: [...transaction, { friendName, description, equalSplit, selfPaid }],
-    //                 owed: owed += equalSplit,
-    //                 balance: balance += equalSplit
-
-    //             }, () => {
-    //                 // console.log("Self");
-    //                 localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
-    //             })
-
-    //         }
-    //         else {
-
-    //             this.setState({
-
-    //                 transaction: [...transaction, { friendName, description, equalSplit, selfPaid }],
-    //                 owe: owe += equalSplit,
-    //                 balance: balance -= equalSplit
-
-    //             }, () => {
-    //                 // console.log("not self data");
-    //                 localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
-    //             })
-    //         }
-    //         return true
-    //     }
-
-    //     /*  this.setState(
-    //          {
-    //              transaction: [...transaction, { friendName, equalSplit, selfPaid }]
-    //          })
-    //      localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
-    // */
-
-    //     // console.log(this.state.transaction);
-    // }
-
-    // amountInput = (e) => {
-    //     this.setState(
-    //         {
-    //             amountPaid: e.target.value || 0,
-    //             equalSplit: e.target.value / 2
-    //         }
-    //     );
-    // }
-
-
-
     render() {
-        console.log("render")
 
-
-
-        // console.log("AHAAAAAAAAAA", JSON.parse(localStorage.getItem("data")));
 
         return (
             <div class="mx-auto" >
@@ -200,12 +86,7 @@ class Dashtab extends React.Component {
                             <div class="col d-flex justify-content-end">
 
                                 {/* <!-- Button trigger modal --> */}
-                                <Link to={{
-                                    pathname: "/loggedin/addexpenses",
-
-                                }}
-                                >
-
+                                <Link to="/loggedin/addexpenses">
                                     <button type="button" class="btn btn-primary" /* data-bs-toggle="modal" data-bs-target="#exampleModal" */>
                                         Add Expense
                                     </button></Link>
