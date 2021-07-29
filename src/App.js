@@ -9,7 +9,7 @@ import Bar from './components/Navbar';
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Home from "./components/Homepage";
-
+// import FriendsList from './components/FriendsList';
 import Cake from "./components/Cake";
 
 import {
@@ -64,10 +64,10 @@ class App extends React.Component {
             }} />
 
 
-            < Route path="/loggedin/dashboard/:id" render={() => {
+            < Route path="/loggedin/friends/:id" render={() => {
               return (
-                // <Loggedin />
-                <Individual />
+                <Loggedin />
+                // <Individual />
               )
             }} />
 
