@@ -105,7 +105,7 @@ class Dashtab extends React.Component {
     }
 
     render() {
-        console.log(this.required)
+
         return (
             <div class="mx-auto" >
 
