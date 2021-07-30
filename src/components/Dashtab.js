@@ -39,16 +39,46 @@ class Dashtab extends React.Component {
                 transaction: [...this.props.userList]
             }
         )
+    }
 
 
+    required = [];
 
-        console.log(this.props.userList)
+    finalDisplay = () => {
+        // const totalValue = 0;
+        const eachUser = new Set();
+        this.state.transaction
+            .filter(s => {
+                if (eachUser.has(s.friendName) === false) {
+                    eachUser.add(s.friendName)
+                }
+            })
+
+        eachUser.forEach(s => {
+            const singleUserTransaction = this.state.transaction.reduce((amount, eachTransaction) => {
+                if (s === eachTransaction.friendName) {
+                    if (eachTransaction.selfPaid) {
+                        amount += eachTransaction.equalSplit
+                    } else {
+                        amount -= eachTransaction.equalSplit
+                    }
+                }
+                return amount
+            }, 0
+            )
+
+            this.required = [...this.required, { friendName: s, equalSplit: singleUserTransaction }]
+        }
+        )
+
     }
 
 
     async componentDidMount() {
 
         await this.balanceLoader()
+        await this.finalDisplay()
+
 
         // console.log(this.state.transaction);
 
@@ -70,11 +100,12 @@ class Dashtab extends React.Component {
             }
         })
 
+
+
     }
 
     render() {
-
-
+        console.log(this.required)
         return (
             <div class="mx-auto" >
 
@@ -86,18 +117,18 @@ class Dashtab extends React.Component {
 
 
                     {/* <div class="col"> */}
-                        {/* <div class="row"> */}
-                        <div class="col d-flex justify-content-end align-self-center">
+                    {/* <div class="row"> */}
+                    <div class="col d-flex justify-content-end align-self-center">
 
-                            {/* <!-- Button trigger modal --> */}
-                            <Link to="/loggedin/addexpenses">
-                                <button class="btn btn-sm" id="add-expense-buton">
-                                    Add an expense
-                                </button>
-                            </Link>
+                        {/* <!-- Button trigger modal --> */}
+                        <Link to="/loggedin/addexpenses">
+                            <button class="btn btn-sm" id="add-expense-buton">
+                                Add an expense
+                            </button>
+                        </Link>
 
-                            {/* <button type="button" class="btn btn-secondary">Settle up</button> */}
-                            {/* </div> */}
+                        {/* <button type="button" class="btn btn-secondary">Settle up</button> */}
+                        {/* </div> */}
                         {/* </div> */}
                     </div>
 
@@ -137,7 +168,9 @@ class Dashtab extends React.Component {
 
                 <div>
                     {
-                        (this.state.transaction || []).map((n) => <Splitted data={n} />)
+
+                        // (this.state.transaction || []).map((n) => <Splitted data={n} />)
+                        this.required.map((n) => <Splitted data={n} />)
                     }
 
                 </div>
