@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class IndividualTransactions extends Component {
 
@@ -7,7 +7,7 @@ export default class IndividualTransactions extends Component {
     }
 
     render() {
-        console.log(this.props)
+        // console.log(this.props);
         const {
             friendName,
             description,
@@ -19,7 +19,7 @@ export default class IndividualTransactions extends Component {
         // console.log(id);
 
         return selfPaid ?
-            <div class="p-2" >
+            <div class="container pt-3 pb-3 border-2 border-bottom" >
                 <div className="row">
                     <div class="col-6 text-start align-self-center">{description}</div>
                     <div class="col text-secondary"> You paid<br /> <span className="text-dark"> Rs {amountPaid} </span></div>
@@ -28,7 +28,7 @@ export default class IndividualTransactions extends Component {
                 </div>
             </div >
             :
-            <div class="p-2">
+            <div class="container pt-3 pb-3 border-2 border-bottom">
                 <div className="row">
                     <div class="col-6 text-start align-self-center">{description}</div>
                     <div class="col text-secondary"> {friendName} paid <br /><span className="text-dark"> Rs {amountPaid} </span></div>

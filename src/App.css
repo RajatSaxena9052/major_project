@@ -346,8 +346,10 @@ text-shadow:0 -1px 0 #c83400;
 }
 
 .active-side-link{
-    color:red;
+    color:#5bc5a7;
+    font-weight: bold;
 }
+
 .dash-back{
 background-color: #eee;
 }
@@ -360,4 +362,17 @@ background-color: #eee;
 .side-hover:hover
 {
   background-color: #eee;
+}
+#link-decoration:link { text-decoration: none; }
+#link-decoration:visited { text-decoration: none; }
+#decoration:hover { text-decoration: none; }
+#decoration:active { text-decoration: none; }
+
+#add-expense-buton{
+  background-color: #ff652f;
+  text-shadow:0 -1px 0 #c83400;
+  color:white;
+}
+#add-expense-buton:hover{
+  background-color: #e2511d;
 }

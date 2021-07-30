@@ -10,8 +10,8 @@ import { updator, addUser } from "../redux";
 class Modal extends Component {
     constructor(props) {
         super(props)
-        console.log(store.getState())
-        console.log(this.props.updator);
+        // console.log(store.getState())
+        // console.log(this.props.updator);
 
         this.state = {
             id: uuidv4(),

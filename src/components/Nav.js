@@ -6,14 +6,14 @@ export default class Navbar extends React.Component {
     render() {
         return (
 
-            <div class="jumbotron" >
-                <nav class="navbar navbar-light bg-info" style={{ padding: "0 24px" }}>
+            <div class="jumbotron " >
+                <nav class="navbar navbar-light" style={{ padding: "0 24px", backgroundColor: "#5bc5a7" }}>
                     <a class="navbar-brand" href="/">
-                        <img src={splitwiseLogo} width="108" height="32" className="d-inline-block align-top" alt="splitwise" />
+                        <img src="https://assets.splitwise.com/assets/core/logo-square-65a6124237868b1d2ce2f5db2ab0b7c777e2348b797626816400534116ae22d7.svg" height="20" alt="splitwise icon"></img><span class="text-white fw-bold">Splitwise</span>
                     </a>
 
                     <div class="dropdown">
-                        <a class="btn btn-secondary dropdown-toggle" href="no/links" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="btn text-white dropdown-toggle" href="no/links" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             User
                         </a>
 

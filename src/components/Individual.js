@@ -8,7 +8,7 @@ class Individual extends Component {
 
     render() {
 
-        console.log(this.props);
+        // console.log(this.props);
 
         return (
             <>
@@ -24,7 +24,7 @@ class Individual extends Component {
                             <div class="col d-flex justify-content-end">
 
                                 <Link to="/loggedin/addexpenses">
-                                    <button type="button" class="btn btn-primary" /* data-bs-toggle="modal" data-bs-target="#exampleModal" */>
+                                    <button type="button" class="btn" id="add-expense-buton">
                                         Add Expense
                                     </button></Link>
                                 {/* <button type="button" class="btn btn-secondary">Settle up</button> */}

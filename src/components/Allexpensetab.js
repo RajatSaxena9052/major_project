@@ -38,7 +38,7 @@ class Allexpensetab extends React.Component {
 
                                 {/* <!-- Button trigger modal --> */}
                                 <Link to="/loggedin/addexpenses">
-                                    <button type="button" class="btn btn-primary" /* data-bs-toggle="modal" data-bs-target="#exampleModal" */>
+                                    <button type="button" class="btn" id="add-expense-buton">
                                         Add an expense
                                     </button>
                                 </Link>

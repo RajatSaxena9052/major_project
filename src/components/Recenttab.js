@@ -7,7 +7,7 @@ class Recentab extends React.Component {
 
     render() {
         const { userList = [] } = this.props
-        console.log(userList);
+        // console.log(userList);
 
         // const data = JSON.parse(localStorage.getItem("data")) || {};
         const data = userList;
