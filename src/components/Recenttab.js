@@ -16,7 +16,7 @@ class Recentab extends React.Component {
         return (
             <div class="mx-auto" >
 
-                < div class="row d-flex align-items-center justify-content-between dash-back p-2" >
+                < div class="row align-items-center justify-content-between dash-back p-2 " >
 
                     <div class="col text-start fs-5 fw-bold" >
                         Recent activity

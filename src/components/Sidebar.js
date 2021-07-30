@@ -56,9 +56,8 @@ class Sidebar extends React.Component {
     render() {
         // console.log(this.state.friendsList, "FROM SIDEBAR")
 
-
         return (
-            <div class="col mt-3"  >
+            <div class="col mt-3">
                 <div class="col text-start text-dark">
 
                     <div class="row mb-2"  >

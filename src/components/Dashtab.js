@@ -78,27 +78,27 @@ class Dashtab extends React.Component {
         return (
             <div class="mx-auto" >
 
-                < div class="row align-items-center justify-content-between dash-back p-2  border-2 border-bottom " >
+                < div class="row align-items-center justify-content-between dash-back p-2  border-2 border-bottom flex-nowrap" >
 
                     <div class="col text-start fs-5 fw-bold " >
                         Dashboard
                     </div>
 
 
-                    <div class="col">
-                        <div class="row">
-                            <div class="col d-flex justify-content-end align-self-center">
+                    {/* <div class="col"> */}
+                        {/* <div class="row"> */}
+                        <div class="col d-flex justify-content-end align-self-center">
 
-                                {/* <!-- Button trigger modal --> */}
-                                <Link to="/loggedin/addexpenses">
-                                    <button class="btn btn-sm" id="add-expense-buton">
-                                        Add an expense
-                                    </button>
-                                </Link>
+                            {/* <!-- Button trigger modal --> */}
+                            <Link to="/loggedin/addexpenses">
+                                <button class="btn btn-sm" id="add-expense-buton">
+                                    Add an expense
+                                </button>
+                            </Link>
 
-                                {/* <button type="button" class="btn btn-secondary">Settle up</button> */}
-                            </div>
-                        </div>
+                            {/* <button type="button" class="btn btn-secondary">Settle up</button> */}
+                            {/* </div> */}
+                        {/* </div> */}
                     </div>
 
                 </div >

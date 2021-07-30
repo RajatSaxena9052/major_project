@@ -17,7 +17,7 @@ export default class Loggedin extends React.Component {
                 <Navbar />
                 <div class="container-fluid">
                     <div class="row flex-nowrap">
-                        <div class="col-3 col-sm-1 col-md-3 ">
+                        <div class="col col-3 ">
                             <Sidebar />
                         </div>
 
@@ -41,9 +41,9 @@ export default class Loggedin extends React.Component {
 
                             <Route path="/loggedin/allexpenses" exact render={(props) => {
                                 return (
-                                    <>
-                                        <Allexpensetab />
-                                    </>
+
+                                    <Allexpensetab />
+
                                 )
                             }} />
 

@@ -14,8 +14,8 @@ class Individual extends Component {
             <div class="col">
                 < div class="row d-flex align-items-center justify-content-between dash-back p-2  border-2 border-bottom" >
 
-                    <div class="col text-start">
-                        <h1 class="h4" >{this.props.match.params.id}</h1>
+                    <div class="col fw-bold fs-4 text-start">
+                        {this.props.match.params.id}
                     </div>
 
 
@@ -41,7 +41,7 @@ class Individual extends Component {
                     }
                 </div>
 
-            </div>
+            </div >
         )
     }
 }
