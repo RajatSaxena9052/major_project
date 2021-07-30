@@ -15,19 +15,16 @@ export default class Activities extends React.Component {
 
             return selfPaid ?
                 <div class="container pt-3 pb-3 border-2 border-bottom" >
-                    <div class="notification-content row text-start border-1">
-                        <Link to="/loggedin/allexpenses" id="link-decoration">
-                            <div class="col align-self-center">
-                                <img src="https://s3.amazonaws.com/splitwise/uploads/category/icon/square_v2/uncategorized/general@2x.png" height="35px" width="35px" alt="generalIcon" /></div>
-                            <strong>You</strong> added <strong>"{description}"</strong>.<br /><font color="#5bc5a7">You get back Rs {equalSplit}</font>
-                        </Link>
+                    <div class="notification-content text-start border-1 row">
+                        <div class="col-1 align-self-center"><img src="https://s3.amazonaws.com/splitwise/uploads/category/icon/square_v2/uncategorized/general@2x.png" height="35px" width="35px" alt="generalIcon" /></div>
+                        <Link to="/loggedin/allexpenses" id="link-decoration" class="col">  <strong>You</strong> added <strong>"{description}"</strong>.<br /><font color="#5bc5a7">You get back Rs {equalSplit}</font></Link>
                     </div>
                 </div >
                 :
                 < div class="container pt-3 pb-3 border-2 border-bottom" >
-                    <div class="notification-content text-start border-1">
+                    <div class="notification-content text-start border-1 row">
+                        <div class="col-1 align-self-center"><img src="https://s3.amazonaws.com/splitwise/uploads/category/icon/square_v2/uncategorized/general@2x.png" height="35px" width="35px" alt="generalIcon" /></div>
                         <Link to="/loggedin/allexpenses" id="link-decoration"><strong>You</strong> added <strong>"{description}"</strong>.<br /><font color="#ff652f">You owe Rs {equalSplit}</font></Link>
-
                     </div>
                 </div >
         })
