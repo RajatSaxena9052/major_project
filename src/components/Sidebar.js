@@ -61,24 +61,24 @@ class Sidebar extends React.Component {
             <div class="col mt-3"  >
                 <div class="col text-start text-dark">
 
-                    <div class="col mb-2"  >
+                    <div class="row mb-2"  >
                         <NavLink exact style={{ textDecoration: "none" }} activeClassName="active-side-link" to="/loggedin/dashboard"><div class="col side-hover" > <img src="https://assets.splitwise.com/assets/core/logo-square-65a6124237868b1d2ce2f5db2ab0b7c777e2348b797626816400534116ae22d7.svg" width="20" height="20" alt="splitwise icon"></img> Dashboard</div></NavLink>
                     </div>
 
-                    <div class="col mb-2"  >
+                    <div class="row mb-2"  >
 
                         <NavLink exact style={{ textDecoration: "none" }} activeClassName="active-side-link" to="/loggedin/recent"><div class="col side-hover"> <FaFlag /> Recent activity</div></NavLink>
                     </div>
 
-                    <div class="col mb-2"  >
+                    <div class="row mb-2"  >
                         <NavLink exact style={{ textDecoration: "none" }} activeClassName="active-side-link" to="/loggedin/allexpenses"><div class="col side-hover"><VscListUnordered /> All expenses</div></NavLink>
                     </div>
 
-                    <div class="col mb-2"  >
+                    <div class="row mb-2"  >
                         <NavLink exact style={{ textDecoration: "none" }} activeClassName="active-side-link" to="/loggedin/addexpenses"><div class="col side-hover"><BsPlusSquare /> Add expenses</div></NavLink>
                     </div>
 
-                    <div class="col mb-2"  >
+                    <div class="row mb-2"  >
                         <div class="col bg-light" >Friends</div>
                     </div>
                     <div>

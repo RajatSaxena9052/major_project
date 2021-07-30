@@ -26,7 +26,8 @@ class Modal extends Component {
             owed: 0,
             transaction: [],
             error: "",
-            status: ""
+            status: "",
+            setValue: ""
         }
     }
 
@@ -42,8 +43,8 @@ class Modal extends Component {
         )
     }
 
-    addingExpenses = (data) => {
-        // console.log(data)
+    addingExpenses = (event) => {
+        console.log(event)
 
         let {
             id,
@@ -94,6 +95,9 @@ class Modal extends Component {
                     status: ""
                 })
             }, 3 * 1000)
+
+
+
 
             // console.log(result);
             this.props.addUserHandler({ id, friendName, description, equalSplit, selfPaid, amountPaid })
@@ -164,7 +168,7 @@ class Modal extends Component {
                             {/* modal body */}
 
                             <div>
-                                <div class="bg-danger">
+                                <div class="bg-danger text-white fw-bold rounded">
                                     {this.state.error}
                                 </div>
                             </div>
@@ -177,7 +181,7 @@ class Modal extends Component {
 
 
                                 <div class="mb-3">
-                                    <h5>Description :</h5>
+                                    <h5>Description:</h5>
                                     <input class="form-control" type="text" placeholder="Enter a description" onChange={(e) => { this.setState({ description: e.target.value }) }} required />
                                 </div>
 
@@ -187,7 +191,7 @@ class Modal extends Component {
                                     <input class="form-control" type="number" min={"0"} placeholder="0.00" onChange={this.amountInput} required />
                                 </div>
 
-                                <h5>paid by you :</h5>
+                                <h5>Paid by you:</h5>
                                 <div class="form-check">
                                     <label class="form-check-label" htmlFor="flexRadioDefault1">
                                         Yes
@@ -207,16 +211,12 @@ class Modal extends Component {
                             <div class="modal-footer">
 
                                 <div>
-                                    <div class="bg-success text-white">
-
+                                    <div class="bg-success text-white fw-bold rounded">
                                         {this.state.status}
-
-
                                     </div>
 
                                 </div>
-                                {/* <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}
-                                <button type="button" class="btn btn-primary" onClick={this.addingExpenses}/* {this.props.updator} */ /* data-bs-dismiss={this.state.modal} */ > Save changes</button>
+                                <button type="button" class="btn btn-primary" onClick={this.addingExpenses}> Save changes</button>
                             </div>
                         </div>
                     </div>

@@ -11,10 +11,10 @@ class Individual extends Component {
         // console.log(this.props);
 
         return (
-            <>
+            <div class="col">
                 < div class="row d-flex align-items-center justify-content-between dash-back p-2  border-2 border-bottom" >
 
-                    <div class="col-5 text-start">
+                    <div class="col text-start">
                         <h1 class="h4" >{this.props.match.params.id}</h1>
                     </div>
 
@@ -33,7 +33,7 @@ class Individual extends Component {
                         </div>
                     </div>
                 </div >
-                <div>
+                <div >
                     {
                         this.props.userList
                             .filter(user => this.props.match.params.id === user.friendName)
@@ -41,7 +41,7 @@ class Individual extends Component {
                     }
                 </div>
 
-            </>
+            </div>
         )
     }
 }

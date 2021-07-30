@@ -16,12 +16,13 @@ export default class Loggedin extends React.Component {
             <>
                 <Navbar />
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-2">
+                    <div class="row flex-nowrap">
+                        <div class="col-3 col-sm-1 col-md-3 ">
                             <Sidebar />
                         </div>
 
-                        <div class="col-9 shadow border-4 border-start border-end" style={{ height: " 100vh/* calc(100vh - 60px) */" }}>
+                        <div class="col col-md-7 shadow border-4 border-start border-end" style={{ height: " 100vh/* calc(100vh - 60px) */" }}>
+
                             <Route path="/loggedin/dashboard" exact render={(props) => {
                                 return (
                                     <>

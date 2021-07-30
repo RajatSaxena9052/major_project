@@ -19,8 +19,8 @@ export default class IndividualTransactions extends Component {
         // console.log(id);
 
         return selfPaid ?
-            <div class="container pt-3 pb-3 border-2 border-bottom" >
-                <div className="row">
+            <div class="col pt-3 pb-3 border-2 border-bottom" >
+                <div className="row flex-nowrap">
                     <div class="col-1 align-self-center"><img src="https://s3.amazonaws.com/splitwise/uploads/category/icon/square_v2/uncategorized/general@2x.png" height="35px" alt="generalIcon" /></div>
                     <div class="col-6 text-start align-self-center">{description}</div>
                     <div class="col text-secondary"> You paid<br /> <span className="text-dark"> Rs {amountPaid} </span></div>
@@ -29,10 +29,10 @@ export default class IndividualTransactions extends Component {
                 </div>
             </div >
             :
-            <div class="container pt-3 pb-3 border-2 border-bottom">
-                <div className="row">
-                    <div class="col-1 align-self-center"><img src="https://s3.amazonaws.com/splitwise/uploads/category/icon/square_v2/uncategorized/general@2x.png" height="35px" width="35px" alt="generalIcon" /></div>
-                    <div class="col-6 text-start align-self-center">{description}</div>
+            <div class="col pt-3 pb-3 border-2 border-bottom flex-nowrap">
+                <div className="row flex-nowrap">
+                    <div class="col col-sm-1 align-self-center"><img src="https://s3.amazonaws.com/splitwise/uploads/category/icon/square_v2/uncategorized/general@2x.png" height="35px" width="35px" alt="generalIcon" /></div>
+                    <div class="col-6 col-sm-1 text-start align-self-center">{description}</div>
                     <div class="col text-secondary"> {friendName} paid <br /><span className="text-dark"> Rs {amountPaid} </span></div>
                     <div class="col text-secondary">{friendName} lent you <br /><font color="#ff652f" > <span> Rs {equalSplit} </span></font></div>
                 </div>

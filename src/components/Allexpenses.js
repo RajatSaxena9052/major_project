@@ -30,12 +30,12 @@ class Allexpenses extends Component {
             selfPaid,
         } = this.props.data;
 
-        // console.log(id);
+
 
         return selfPaid ?
-            <div class="border-2 border-bottom" style={{ display: this.state.display }}>
-                <div className="row">
-                    <div class="col-1 align-self-center"><img src="https://s3.amazonaws.com/splitwise/uploads/category/icon/square_v2/uncategorized/general@2x.png" height="35px" alt="generalIcon" /></div>
+            <div class="container  border-2 border-bottom" style={{ display: this.state.display }}>
+                <div className="row flex-nowrap">
+                    <div class="col align-self-center"><img src="https://s3.amazonaws.com/splitwise/uploads/category/icon/square_v2/uncategorized/general@2x.png" height="35px" alt="generalIcon" /></div>
                     <div class="col-6 text-start align-self-center">{description}</div>
                     <div class="col text-secondary fs-6"> You paid<br /> <span className="text-dark"> Rs {amountPaid} </span></div>
 
@@ -45,7 +45,7 @@ class Allexpenses extends Component {
             </div >
             :
             <div class="p-2 border-2 border-bottom" style={{ display: this.state.display }}>
-                <div className="row">
+                <div className="row flex-nowrap">
                     <div class="col align-self-center"><img src="https://s3.amazonaws.com/splitwise/uploads/category/icon/square_v2/uncategorized/general@2x.png" height="35px" width="35px" alt="generalIcon" /></div>
                     <div class="col-6 text-start align-self-center">{description}</div>
                     <div class="col text-secondary fs-6"> {friendName} paid <br /><span className="text-dark fw-bold"> Rs {amountPaid} </span></div>

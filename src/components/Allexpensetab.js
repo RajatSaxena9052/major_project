@@ -24,11 +24,11 @@ class Allexpensetab extends React.Component {
     render() {
 
         return (
-            <div>
+            <div >
                 < div class="row d-flex align-items-center justify-content-between dash-back p-2  border-2 border-bottom" >
 
-                    <div class="col-5 text-start ">
-                        <h1 class="h4" >All Expenses</h1>
+                    <div class="col fs-5 fw-bold text-start ">
+                        All Expensess
                     </div>
 
 

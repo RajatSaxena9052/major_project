@@ -18,8 +18,8 @@ class Recentab extends React.Component {
 
                 < div class="row d-flex align-items-center justify-content-between dash-back p-2" >
 
-                    <div class="col-5 text-start">
-                        <h1 class="h4">Recent activity</h1>
+                    <div class="col text-start fs-5 fw-bold" >
+                        Recent activity
                     </div>
 
                 </div >
