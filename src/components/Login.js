@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
 import Joi from "joi";
+
+import Footer from "./Footer";
 
 export default class Login extends React.Component {
     constructor() {
         super()
+
         this.state = {
             email: "",
             password: "",
@@ -13,12 +15,12 @@ export default class Login extends React.Component {
             error: ""
         }
     }
+
     eMail = (event) => {
 
         this.setState({
             email: event.target.value
         })
-        console.log(event.target.value);
 
     }
 
@@ -27,17 +29,18 @@ export default class Login extends React.Component {
         this.setState({
             password: event.target.value
         })
-        console.log(event.target.value);
+
     }
 
     login = (event) => {
 
         const { email, password } = this.state;
 
-        const schema = Joi.object({
-            email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } }),
-            password: Joi.string().pattern(/^[a-zA-Z0-9]{3,30}$/)
-        })
+        const schema = Joi.object(
+            {
+                email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } }),
+                password: Joi.string().pattern(/^[a-zA-Z0-9]{3,30}$/)
+            })
 
         const result = schema.validate({ email, password });
 
@@ -46,41 +49,37 @@ export default class Login extends React.Component {
 
             const errorMessage = result.error.details[0].message.replaceAll('"', "");
 
-
             if (result.error) {
+
                 if (result.error.details[0].context.key === "password") {
                     this.setState({
                         error: "The password can contain lower case, upper case, special characters and should have a length between 3 to 30.",
                     });
-                }
-
-                else {
+                } else {
                     this.setState({
                         error: errorMessage
                     });
                 }
+
             }
+
             return
         }
     }
+
     render() {
+
         return (
             <div >
                 <div id="login-body">
-
-
 
                     <div class="bg-danger d-flex justify-content-center align-items-center text-white pd-2">
                         {this.state.error}
                     </div>
 
-
-
-
                     <div id="login-container">
                         <div id="kam-size">
                             <div id="login-content">
-
 
                                 <div id="login-label">Log in</div>
 
@@ -102,14 +101,14 @@ export default class Login extends React.Component {
 
                                 <a id="frgt-passwd" href="#passwordreset">Forgot your password?</a>
 
-
                             </div>
                         </div>
-
-
                     </div>
+
                 </div>
+
                 <Footer />
+
             </div>
         )
     }

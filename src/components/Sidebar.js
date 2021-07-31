@@ -17,6 +17,7 @@ class Sidebar extends React.Component {
             friendsList: []
         }
     }
+
     arr = [];
 
     componentDidMount() {
@@ -25,7 +26,6 @@ class Sidebar extends React.Component {
         userList.forEach(element => {
 
             if (this.arr.indexOf(element.friendName) === -1) {
-                // console.log(element.friendName, this.arr);
                 this.arr = [...this.arr, element.friendName]
             }
 
@@ -42,7 +42,6 @@ class Sidebar extends React.Component {
         userList.forEach(element => {
 
             if (this.arr.indexOf(element.friendName) === -1) {
-                // console.log(element.friendName, this.arr);
                 this.arr = [...this.arr, element.friendName]
             }
 
@@ -54,7 +53,6 @@ class Sidebar extends React.Component {
     }
 
     render() {
-        // console.log(this.state.friendsList, "FROM SIDEBAR")
 
         return (
             <div class="col mt-3">
@@ -96,7 +94,6 @@ const mapStateToProps = (state) => {
         userList: state.userData
     }
 }
-
 
 export default connect(
     mapStateToProps

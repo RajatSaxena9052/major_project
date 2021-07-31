@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
 import Joi from 'joi';
-import { v4 as uuidv4 } from 'uuid';
-// import Dashtab from './Dashtab';
-import store from '../redux/store';
 import { connect } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+
 import { updator, addUser } from "../redux";
 
 
 class Modal extends Component {
     constructor(props) {
         super(props)
-        // console.log(store.getState())
-        // console.log(this.props.updator);
 
         this.state = {
             id: uuidv4(),
@@ -29,22 +26,20 @@ class Modal extends Component {
             status: "",
             setValue: ""
         }
+
     }
 
 
     componentDidMount() {
-        // console.log("AHAAAAAAAAAA", JSON.parse(localStorage.getItem("data")));
 
         this.setState(
             {
-                // ...this.state,
                 transaction: Object.values(JSON.parse(localStorage.getItem("data")) || {})
             }
         )
     }
 
     addingExpenses = (event) => {
-        console.log(event)
 
         let {
             id,
@@ -60,9 +55,6 @@ class Modal extends Component {
         } = this.state;
 
         amountPaid = Number(amountPaid);
-        // console.log(amountPaid)
-
-        // if (friendName === "" || description === "" || amountPaid < 0.01 || ) {
 
         const schema = Joi.object({
             friendName: Joi.string().alphanum().trim().required().min(3).max(20).strict(),
@@ -78,12 +70,10 @@ class Modal extends Component {
                 modal: "",
                 error: result.error.details[0].message.replaceAll('"', "")
             })
-            // event.preventDefault();
 
             return false;
 
         } else {
-            // event.close();
             this.setState({
                 modal: "modal",
                 error: "",
@@ -94,12 +84,18 @@ class Modal extends Component {
                 this.setState({
                     status: ""
                 })
-            }, 3 * 1000)
+            }, 2 * 1000)
 
+            setTimeout(() => {
+                this.setState({
+                    friendName: "",
+                    description: "",
+                    amountPaid: "",
+                    selfPaid: "",
+                    description: ""
+                })
+            }, 0 * 1000)
 
-
-
-            // console.log(result);
             this.props.addUserHandler({ id, friendName, description, equalSplit, selfPaid, amountPaid })
 
             if (selfPaid) {
@@ -109,10 +105,6 @@ class Modal extends Component {
                     transaction: [...transaction, { id, friendName, description, equalSplit, selfPaid, amountPaid }],
                     owed: owed += equalSplit,
                     balance: balance += equalSplit
-
-                }, () => {
-                    // console.log("Self");
-                    localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
                 })
 
             }
@@ -124,10 +116,8 @@ class Modal extends Component {
                     owe: owe += equalSplit,
                     balance: balance -= equalSplit
 
-                }, () => {
-                    // console.log("not self data");
-                    localStorage.setItem("data", JSON.stringify({ ...this.state.transaction, ...this.prevData }));
                 })
+
             }
             return true
         }
@@ -152,8 +142,6 @@ class Modal extends Component {
     // }
 
     render() {
-        // console.log(this.state)
-        // console.log(localStorage.getItem("data"))
 
         return (
             <div>
@@ -176,19 +164,19 @@ class Modal extends Component {
                             <div class="modal-body text-start">
                                 <div class="input-group input-group-sm mb-3">
                                     <span class="input-group-text" id="inputGroup-sizing-sm">With you and </span>
-                                    <input type="text" class="form-control" aria-label="Sizing example input" placeholder="Enter your friends name" onChange={(e) => this.setState({ friendName: e.target.value })} required />
+                                    <input type="text" class="form-control" aria-label="Sizing example input" placeholder="Enter your friends name" value={this.state.friendName} onChange={(e) => this.setState({ friendName: e.target.value })} required />
                                 </div>
 
 
                                 <div class="mb-3">
                                     <h5>Description:</h5>
-                                    <input class="form-control" type="text" placeholder="Enter a description" onChange={(e) => { this.setState({ description: e.target.value }) }} required />
+                                    <input class="form-control" type="text" placeholder="Enter a description" value={this.state.description} onChange={(e) => { this.setState({ description: e.target.value }) }} required />
                                 </div>
 
 
                                 <div class="mb-3">
                                     <h5>Total Amount Paid Rs:</h5>
-                                    <input class="form-control" type="number" min={"0"} placeholder="0.00" onChange={this.amountInput} required />
+                                    <input class="form-control" type="number" min={"0"} placeholder="0.00" value={this.state.amountPaid} onChange={this.amountInput} required />
                                 </div>
 
                                 <h5>Paid by you:</h5>
@@ -196,14 +184,14 @@ class Modal extends Component {
                                     <label class="form-check-label" htmlFor="flexRadioDefault1">
                                         Yes
                                     </label>
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onChange={() => this.setState({ selfPaid: true })} />
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked={this.state.selfPaid} onChange={() => this.setState({ selfPaid: true })} />
                                 </div>
                                 <div class="form-check">
 
                                     <label class="form-check-label" htmlFor="flexRadioDefault1">
                                         No
                                     </label>
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onChange={() => this.setState({ selfPaid: false })} />
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked={this.state.selfPaid} onChange={() => this.setState({ selfPaid: false })} />
 
                                 </div>
 
@@ -226,12 +214,6 @@ class Modal extends Component {
     }
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-//         : state.friendName
-//     }
-// }
-
 const mapDispatchToProps = (dispatch) => {
     return {
         updator: () => dispatch(updator()),
@@ -239,10 +221,7 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-
-
 export default connect(
     null,
-    // mapStateToProps,
     mapDispatchToProps
 )(Modal);

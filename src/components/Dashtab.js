@@ -1,16 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Splitted from "./Splitted";
-import { Link } from "react-router-dom";
 
 
 class Dashtab extends React.Component {
-
-
     constructor(props) {
         super(props)
-
 
         this.state = {
             modal: "",
@@ -34,19 +31,17 @@ class Dashtab extends React.Component {
     // }
 
     balanceLoader = () => {
-        this.setState(
-            {
-                transaction: [...this.props.userList]
-            }
-        )
+        this.setState({
+            transaction: [...this.props.userList]
+        })
     }
 
 
     required = [];
 
     finalDisplay = () => {
-        // const totalValue = 0;
         const eachUser = new Set();
+
         this.state.transaction
             .filter(s => {
                 if (eachUser.has(s.friendName) === false) {
@@ -55,19 +50,27 @@ class Dashtab extends React.Component {
             })
 
         eachUser.forEach(s => {
-            const singleUserTransaction = this.state.transaction.reduce((amount, eachTransaction) => {
-                if (s === eachTransaction.friendName) {
-                    if (eachTransaction.selfPaid) {
-                        amount += eachTransaction.equalSplit
-                    } else {
-                        amount -= eachTransaction.equalSplit
-                    }
-                }
-                return amount
-            }, 0
-            )
+            const singleUserTransaction = this.state.transaction
+                .reduce((amount, eachTransaction) => {
+                    if (s === eachTransaction.friendName) {
 
-            this.required = [...this.required, { friendName: s, equalSplit: singleUserTransaction }]
+                        if (eachTransaction.selfPaid) {
+                            amount += eachTransaction.equalSplit
+                        } else {
+                            amount -= eachTransaction.equalSplit
+                        }
+
+                    }
+                    return amount
+                }, 0)
+
+            this.required = [
+                ...this.required,
+                {
+                    friendName: s,
+                    equalSplit: singleUserTransaction
+                }
+            ]
         }
         )
 
@@ -79,11 +82,7 @@ class Dashtab extends React.Component {
         await this.balanceLoader()
         await this.finalDisplay()
 
-
-        // console.log(this.state.transaction);
-
         this.state.transaction.forEach(t => {
-            // console.log(t)
             if (t.selfPaid === true) {
                 this.setState(
                     {
@@ -99,8 +98,6 @@ class Dashtab extends React.Component {
                 })
             }
         })
-
-
 
     }
 
@@ -168,7 +165,6 @@ class Dashtab extends React.Component {
 
                 <div>
                     {
-
                         // (this.state.transaction || []).map((n) => <Splitted data={n} />)
                         this.required.map((n) => <Splitted data={n} />)
                     }
@@ -176,12 +172,9 @@ class Dashtab extends React.Component {
                 </div>
 
             </div >
-
-
-        );
+        )
     }
 }
-
 
 const mapStateToProps = (state) => {
     return {

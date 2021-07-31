@@ -1,11 +1,11 @@
 import React from "react";
-import splitwiseLogo from "../logos/splitwise.png"
 import { Link } from "react-router-dom";
 
 export default class Navbar extends React.Component {
-    render() {
-        return (
 
+    render() {
+
+        return (
             <div class="jumbotron" >
                 <nav class="navbar navbar-light" style={{ padding: "0 24px", backgroundColor: "#5bc5a7" }}>
                     <a class="navbar-brand" href="/">
@@ -19,15 +19,11 @@ export default class Navbar extends React.Component {
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li><Link to="/" class="dropdown-item" href="#nolink">Sign Out</Link></li>
-                            {/* <li><a class="dropdown-item" href="#nolink">Another action</a></li> */}
-                            {/* <li><a class="dropdown-item" href="#nolink">Something else here</a></li> */}
                         </ul>
                     </div>
-
                 </nav>
-
             </div >
-
         );
+
     }
 }

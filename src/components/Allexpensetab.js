@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Allexpenses from './Allexpenses';
 import { connect } from "react-redux";
+
+import Allexpenses from './Allexpenses';
 
 class Allexpensetab extends React.Component {
     constructor() {
@@ -20,7 +21,6 @@ class Allexpensetab extends React.Component {
 
     }
 
-
     render() {
 
         return (
@@ -33,18 +33,18 @@ class Allexpensetab extends React.Component {
 
 
                     {/* <div class="col" > */}
-                        {/* <div class="row"> */}
-                        <div class="col d-flex justify-content-end">
+                    {/* <div class="row"> */}
+                    <div class="col d-flex justify-content-end">
 
-                            {/* <!-- Button trigger modal --> */}
-                            <Link to="/loggedin/addexpenses">
-                                <button class="btn btn-sm" id="add-expense-buton">
-                                    Add an expense
-                                </button>
-                            </Link>
+                        {/* <!-- Button trigger modal --> */}
+                        <Link to="/loggedin/addexpenses">
+                            <button class="btn btn-sm" id="add-expense-buton">
+                                Add an expense
+                            </button>
+                        </Link>
 
-                            {/* <button type="button" class="btn btn-secondary">Settle up</button> */}
-                            {/* </div> */}
+                        {/* <button type="button" class="btn btn-secondary">Settle up</button> */}
+                        {/* </div> */}
                         {/* </div> */}
                     </div>
 

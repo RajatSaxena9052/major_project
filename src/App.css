@@ -16,6 +16,16 @@
   padding: 20px 32px;
 }
 
+@media only screen and (max-width:500px){
+
+#header{
+  padding-top: 10px;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+}
+
 #signup-btn {
   display: inline-block;
   padding: 12px 20px;

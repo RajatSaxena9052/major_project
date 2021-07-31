@@ -2,12 +2,8 @@ import React, { Component } from 'react';
 
 export default class IndividualTransactions extends Component {
 
-    componentDidMount() {
-        // this.props.userList
-    }
-
     render() {
-        // console.log(this.props);
+
         const {
             friendName,
             description,
@@ -15,8 +11,6 @@ export default class IndividualTransactions extends Component {
             amountPaid,
             selfPaid,
         } = this.props.data;
-
-        // console.log(id);
 
         return selfPaid ?
             <div class="col pt-3 pb-3 border-2 border-bottom flex-nowrap" >
@@ -35,7 +29,7 @@ export default class IndividualTransactions extends Component {
                     <div class="col text-secondary"> {friendName} paid <br /><span className="text-dark"> Rs {amountPaid} </span></div>
                     <div class="col text-secondary">{friendName} lent you <br /><font color="#ff652f" > Rs <span> {equalSplit} </span></font></div>
                 </div>
-
             </div >
     }
+
 }

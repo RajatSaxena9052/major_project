@@ -1,8 +1,11 @@
 import React from "react";
+
 import { GrFacebook, GrTwitter, GrInstagram } from "react-icons/gr";
 
 export default class Footer extends React.Component {
+
     render() {
+
         return (
             <div class="container mt-5">
                 <div class="d-flex flex-row flex-wrap justify-content-between col-lg">
@@ -44,24 +47,23 @@ export default class Footer extends React.Component {
                                 <a class="m-1 remove-link-decoration" href="https://facebook.com/splitwise"><GrFacebook /></a>
                                 <a class="m-1 remove-link-decoration" href="https://www.instagram.com/splitwise/"><GrInstagram /></a>
                             </div>
-
                         </div>
 
                     </div>
 
                     <div class="container col-lg-5">
-                        <div class="row d-flex justify-content-center mb-3">
-
+                        <div class="row justify-content-center mb-3">
                             <a href="https://play.google.com/store/apps/details?id=com.Splitwise.SplitwiseMobile">
                                 <img class="float-right download-app" src="playStore.png" alt="get it on playstore" />
                             </a>
-
                             <a href="https://apps.apple.com/us/app/splitwise/id458023433">
                                 <img class=" float-left download-app justify-content-between" src="appleplay.png" alt="get it on Apple store" />
                             </a>
                         </div>
+
                         <p>Made with :) in Providence, RI, USA</p>
                     </div>
+
                 </div>
 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 91" class="w-full s">
@@ -83,7 +85,6 @@ export default class Footer extends React.Component {
                     <path fill="#373B3F" d="M166 93H70V38z"></path>
                     <path fill="#52595F" d="M70 38v55h-96z"></path>
                 </svg>
-
 
             </div>
         )

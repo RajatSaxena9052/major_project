@@ -1,21 +1,20 @@
 import React from "react";
-import Footer from "./Footer";
 import { Link } from "react-router-dom";
 
+import Footer from "./Footer";
+
 export default class Home extends React.Component {
+
     render() {
+
         return (
             <div class="container-fluid">
 
-                {/* <div class="row bg-info" id="bgi">
-                    first row
-                </div>*/}
                 <div class="row">
                     <div class="col bg-dark text-white" id="bgi">
                         <div class="pt-4 pb-4">
                             <h1>Track balances</h1>
                             <p>Keep track of shared expenses,<br></br> balances, and who owes who.</p>
-
                         </div>
                         <div class="text-center">
                             <img src="https://secure.splitwise.com/assets/home_page/fixtures/asset1.png" class="rounded" alt="..."></img>
@@ -26,7 +25,6 @@ export default class Home extends React.Component {
                         <div class="pt-4 pb-4">
                             <h1>Organize expenses</h1>
                             <p>Split expenses with any group: trips,<br></br> housemates, friends, and family.</p>
-
                         </div>
                         <div class="text-center">
                             <img src="https://secure.splitwise.com/assets/home_page/fixtures/asset2.png" class="rounded" alt="..."></img>
@@ -43,7 +41,6 @@ export default class Home extends React.Component {
                             <p>
                                 Quickly add expenses on the go before<br></br> you forget who paid.
                             </p>
-
                         </div>
                         <div class="text-center">
                             <img src="https://secure.splitwise.com/assets/home_page/fixtures/asset3.png" class="rounded" alt="..."></img>
@@ -58,7 +55,6 @@ export default class Home extends React.Component {
                             <p class="text-lg">
                                 Settle up with a friend and record any <br></br>cash or online payment.
                             </p>
-
                         </div>
                         <div class="text-center text-white">
                             <img src="https://secure.splitwise.com/assets/home_page/fixtures/asset4.png" class="rounded" alt="..."></img>
@@ -221,8 +217,11 @@ export default class Home extends React.Component {
                     </div>
 
                 </div>
+
                 <Footer />
+
             </div >
         )
     }
+
 }

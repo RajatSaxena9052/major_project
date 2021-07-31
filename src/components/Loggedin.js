@@ -10,13 +10,16 @@ import Modal from "./Modal";
 import Individual from "./Individual";
 
 export default class Loggedin extends React.Component {
+
     render() {
 
         return (
             <>
                 <Navbar />
+
                 <div class="container-fluid">
                     <div class="row flex-nowrap">
+
                         <div class="col col-3 ">
                             <Sidebar />
                         </div>
@@ -64,6 +67,7 @@ export default class Loggedin extends React.Component {
                             }} />
 
                         </div>
+
                     </div>
                 </div>
             </>

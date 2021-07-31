@@ -1,28 +1,24 @@
-import './App.css';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+} from "react-router-dom";
 import { Provider } from 'react-redux';
 
+import './App.css';
 import store from './redux/store';
-
-import React from 'react';
 import Loggedin from './components/Loggedin';
 import Bar from './components/Navbar';
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Home from "./components/Homepage";
-// import FriendsList from './components/FriendsList';
 import Cake from "./components/Cake";
-
-import {
-  BrowserRouter as Router,
-  Route,
-} from "react-router-dom";
-import Individual from './components/Individual';
-
 
 class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
+
         <Router>
 
           <div className="App" >
@@ -61,7 +57,6 @@ class App extends React.Component {
             < Route path="/loggedin/friends/:id" render={() => {
               return (
                 <Loggedin />
-                // <Individual />
               )
             }} />
 
@@ -70,9 +65,6 @@ class App extends React.Component {
                 <Loggedin {...props} />
               )
             }} />
-
-
-
 
             < Route path="/loggedin/recent" exact render={(props) => {
               return (
@@ -85,13 +77,13 @@ class App extends React.Component {
                 <Loggedin />
               )
             }} />
-            <Route path="/cake" exact component={Cake}></Route>
 
+            <Route path="/cake" exact component={Cake}></Route>
 
           </div >
         </Router>
-      </Provider>
 
+      </Provider>
     );
   }
 }

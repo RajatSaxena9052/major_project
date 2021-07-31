@@ -18,15 +18,14 @@ export default class Signup extends React.Component {
         this.setState({
             uname: event.target.value
         })
-        console.log(event.target.value);
 
     }
+
     eMail = (event) => {
 
         this.setState({
             email: event.target.value
         })
-        console.log(event.target.value);
 
     }
 
@@ -35,27 +34,38 @@ export default class Signup extends React.Component {
         this.setState({
             password: event.target.value
         })
-        console.log(event.target.value);
     }
 
     signup = (event) => {
 
-        const { uname: username, email, password } = this.state;
+        const {
+            uname: username,
+            email,
+            password
+        } = this.state;
 
-        const schema = Joi.object({
-            username: Joi.required(),
-            email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } }),
-            password: Joi.string().pattern(/^[a-zA-Z0-9]{3,30}$/)
-        })
+        const schema = Joi.object(
+            {
+                username: Joi.required(),
+                email: Joi.string().email({
+                    minDomainSegments: 2,
+                    tlds: { allow: ["com", "net"] }
+                }),
+                password: Joi.string().pattern(/^[a-zA-Z0-9]{3,30}$/)
+            })
 
-        const result = schema.validate({ username, email, password });
-        console.log(result)
+        const result = schema.validate(
+            {
+                username,
+                email,
+                password
+            }
+        );
 
         if (result.error) {
             event.preventDefault();
 
             const errorMessage = result.error.details[0].message.replaceAll('"', "");
-
 
             if (result.error) {
 
@@ -64,12 +74,12 @@ export default class Signup extends React.Component {
                         error: "The password should have a length between 3 to 30.",
                     });
                 }
-
                 else {
                     this.setState({
                         error: errorMessage
                     });
                 }
+
             }
             return
         }
@@ -115,7 +125,6 @@ export default class Signup extends React.Component {
                                 <Link to="/login"><button id="signupform-btn" type="button" class="btn btn-primary btn-lg" onClick={this.signup}>Sign me up!</button></Link>
 
                             </div>
-
 
                         </form>
 

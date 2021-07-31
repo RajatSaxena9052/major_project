@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-
 import { delete_user_transaction } from "../redux";
 
 class Allexpenses extends Component {
@@ -29,8 +28,6 @@ class Allexpenses extends Component {
             amountPaid,
             selfPaid,
         } = this.props.data;
-
-
 
         return selfPaid ?
             <div class="border-2 border-bottom" style={{ display: this.state.display }}>
