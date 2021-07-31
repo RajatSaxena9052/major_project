@@ -65,8 +65,8 @@ class Modal extends Component {
         // if (friendName === "" || description === "" || amountPaid < 0.01 || ) {
 
         const schema = Joi.object({
-            friendName: Joi.string().required().min(3).max(30),
-            description: Joi.string().required().min(3).max(30),
+            friendName: Joi.string().alphanum().trim().required().min(3).max(20).strict(),
+            description: Joi.string().alphanum().trim().required().min(3).max(20).strict(),
             amountPaid: Joi.number().required().min(0.01).max(99999999)
         })
 
