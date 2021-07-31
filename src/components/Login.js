@@ -96,7 +96,7 @@ export default class Login extends React.Component {
 
                                     </div>
 
-                                    <Link to="/loggedin"><button id="login-submit-btn" onClick={this.login}>Log in</button></Link>
+                                    <Link to="/loggedin/dashboard"><button id="login-submit-btn" onClick={this.login}>Log in</button></Link>
 
                                 </form>
 
