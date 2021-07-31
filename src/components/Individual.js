@@ -13,23 +13,24 @@ class Individual extends Component {
 
                 < div class="row d-flex align-items-center justify-content-between dash-back p-2  border-2 border-bottom" >
 
-                    <div class="col fw-bold fs-4 text-start">
+                    <div class="col fw-bold fs-5 text-start text-break">
                         {this.props.match.params.id}
                     </div>
 
-                    <div class="col">
-                        <div class="row">
-                            <div class="col d-flex justify-content-end">
+                    {/* <div class="col"> */}
+                    {/* <div class="row"> */}
+                    <div class="col d-flex justify-content-end align-self-center">
 
-                                <Link to="/loggedin/addexpenses">
-                                    <button type="button" class="btn" id="add-expense-buton">
-                                        Add Expense
-                                    </button></Link>
-                                {/* <button type="button" class="btn btn-secondary">Settle up</button> */}
+                        <Link to="/loggedin/addexpenses">
+                            <button class="btn btn-sm" id="add-expense-buton">
+                                Add an expense
+                            </button>
+                        </Link>
 
-                            </div>
-                        </div>
                     </div>
+                    {/* <button type="button" class="btn btn-secondary">Settle up</button> */}
+                    {/* </div> */}
+                    {/* </div> */}
 
                 </div >
 

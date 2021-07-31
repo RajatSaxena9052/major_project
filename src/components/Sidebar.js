@@ -56,9 +56,10 @@ class Sidebar extends React.Component {
 
         return (
             <div class="col mt-3">
+
                 <div class="col text-start text-dark">
 
-                    <div class="row mb-2"  >
+                    <div class="row mb-2 text-break"  >
                         <NavLink exact style={{ textDecoration: "none" }} activeClassName="active-side-link" to="/loggedin/dashboard"><div class="col side-hover" > <img src="https://assets.splitwise.com/assets/core/logo-square-65a6124237868b1d2ce2f5db2ab0b7c777e2348b797626816400534116ae22d7.svg" width="20" height="20" alt="splitwise icon"></img> Dashboard</div></NavLink>
                     </div>
 
@@ -78,7 +79,7 @@ class Sidebar extends React.Component {
                     <div class="row mb-2"  >
                         <div class="col bg-light" >Friends</div>
                     </div>
-                    <div>
+                    <div class="row mb-2 text-break" >
                         {(this.state.friendsList || []).map(s => <FriendsList name={s} />)}
                     </div>
 
@@ -87,7 +88,9 @@ class Sidebar extends React.Component {
             </div >
         );
     }
+
 }
+
 
 const mapStateToProps = (state) => {
     return {

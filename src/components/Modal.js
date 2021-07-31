@@ -24,7 +24,8 @@ class Modal extends Component {
             transaction: [],
             error: "",
             status: "",
-            setValue: ""
+            setValue: "",
+            check: ""
         }
 
     }
@@ -91,8 +92,7 @@ class Modal extends Component {
                     friendName: "",
                     description: "",
                     amountPaid: "",
-                    selfPaid: "",
-                    description: ""
+                    selfPaid: false
                 })
             }, 0 * 1000)
 

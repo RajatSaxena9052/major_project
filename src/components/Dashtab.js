@@ -43,7 +43,7 @@ class Dashtab extends React.Component {
         const eachUser = new Set();
 
         this.state.transaction
-            .filter(s => {
+            .forEach(s => {
                 if (eachUser.has(s.friendName) === false) {
                     eachUser.add(s.friendName)
                 }
@@ -106,7 +106,7 @@ class Dashtab extends React.Component {
         return (
             <div class="mx-auto" >
 
-                < div class="row align-items-center justify-content-between dash-back p-2  border-2 border-bottom flex-nowrap" >
+                < div class="row align-items-center justify-content-between dash-back p-2 border-2 border-bottom flex-nowrap" >
 
                     <div class="col text-start fs-5 fw-bold " >
                         Dashboard

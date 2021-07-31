@@ -24,7 +24,7 @@ export default class Loggedin extends React.Component {
                             <Sidebar />
                         </div>
 
-                        <div class="col col-md-7 shadow border-4 border-start border-end" style={{ height: " 100vh/* calc(100vh - 60px) */" }}>
+                        <div class="col col-9 col-md-7 shadow border-4 border-start border-end" style={{ height: " 100vh/* calc(100vh - 60px) */" }}>
 
                             <Route path="/loggedin/dashboard" exact render={(props) => {
                                 return (
