@@ -25,7 +25,6 @@ class Modal extends Component {
             error: "",
             status: "",
             setValue: "",
-            check: ""
         }
 
     }
@@ -60,7 +59,7 @@ class Modal extends Component {
         const schema = Joi.object({
             friendName: Joi.string().alphanum().trim().required().min(3).max(20).strict(),
             description: Joi.string().alphanum().trim().required().min(3).max(20).strict(),
-            amountPaid: Joi.number().required().min(0.01).max(99999999)
+            amountPaid: Joi.number().required().min(0.01).max(99999999).strict()
         })
 
         const result = schema.validate({ friendName, description, amountPaid });
@@ -87,14 +86,12 @@ class Modal extends Component {
                 })
             }, 2 * 1000)
 
-            setTimeout(() => {
-                this.setState({
-                    friendName: "",
-                    description: "",
-                    amountPaid: "",
-                    selfPaid: false
-                })
-            }, 0 * 1000)
+
+            this.setState({
+                friendName: "",
+                description: ""
+            })
+
 
             this.props.addUserHandler({ id, friendName, description, equalSplit, selfPaid, amountPaid })
 
@@ -184,14 +181,14 @@ class Modal extends Component {
                                     <label class="form-check-label" htmlFor="flexRadioDefault1">
                                         Yes
                                     </label>
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked={this.state.selfPaid} onChange={() => this.setState({ selfPaid: true })} />
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onClick={() => this.setState({ selfPaid: true })} />
                                 </div>
                                 <div class="form-check">
 
                                     <label class="form-check-label" htmlFor="flexRadioDefault1">
                                         No
                                     </label>
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked={this.state.selfPaid} onChange={() => this.setState({ selfPaid: false })} />
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onClick={() => this.setState({ selfPaid: false })} />
 
                                 </div>
 
