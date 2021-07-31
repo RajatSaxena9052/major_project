@@ -51,11 +51,11 @@ class App extends React.Component {
               )
             }} />
 
-            < Route path="/loggedin" exact render={() => {
+            {/* < Route path="/loggedin" exact render={() => {
               return (
                 <Loggedin />
               )
-            }} />
+            }} /> */}
 
             < Route path="/loggedin/dashboard" exact render={(props) => {
               return (
